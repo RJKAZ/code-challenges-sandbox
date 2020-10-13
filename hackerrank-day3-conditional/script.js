@@ -13,13 +13,15 @@ complete the stub code provided in your editor to print whether or not n is weir
 
 
 function main(){
-  var N = parseInt(readLines());
+  var N = 40;
   if (N%2 != 0 || (N > 5 && N < 21))
   console.log("Weird");
   else
   console.log("Not Weird");
 
 }
+
+main()
 
 // so to explain that code, the if statement 
 

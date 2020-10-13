@@ -18,3 +18,14 @@ function totalPrice (){
 }
 
 totalPrice()
+
+
+function totalMealPrice (){
+    const dinner = 15;
+    const tax1 = dinner * 0.18;
+    const tip2 = dinner * 0.25;
+
+console.log(dinner + tax1 + tip2);
+}
+
+totalMealPrice();
