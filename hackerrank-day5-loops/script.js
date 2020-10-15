@@ -31,8 +31,9 @@ sample output -
 */
 
 function main() {
-    var n = parseInt(readLine()); //Collect n to use for our multiplication table.
+    var n = 2; //Collect n to use for our multiplication table.
         for (i = 1; i < 11; i++){ //Iterate through i from 1 to 10.
             console.log(n + ' x ' + i + ' = ' + (n*i)); //{variable n} x {variable i} = {n * i result}
         }
 }
+main();
