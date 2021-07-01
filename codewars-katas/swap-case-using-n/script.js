@@ -17,3 +17,22 @@ swap("gOOd MOrniNg", 7864)  -->  "GooD MorNIng"
 swap("", 11345)  -->  ""
 swap("the lord of the rings", 0)  -->  "the lord of the rings"
 */
+
+
+var swapCase = function(letters) {
+  var newLetters = "";
+  for(var i = 0; i<letters.length; i++) {
+    if(letters[i] === letters[i].toLowerCase()) {
+      newLetters += letters[i].toUpperCase();
+    } else {
+      newLetters += letters[i].toLowerCase();
+    }
+  }
+  console.log(newLetters);
+  return newLetters;
+}
+
+var text = "So, today we had a REALLY good day";
+
+var swappedText = swapCase(text);
+console.log(swappedText);
