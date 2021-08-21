@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beasts</title>
+</head>
+<body>
+    <script>
+
+        /* 
+        Animals are eating 
+        1. Every animal is bringing one dish
+        2. the dish must start and end with the same letters at the animals name. 
+        3. So a Lion would have to bring a dish that beings with a L, and ends with a n
+        4. write a function called feast that takes the animal's name and dish as arguments and returns true or false if the beast is allowed to bring the dish. 
+        5. lowercase strings, at least two letters, the dish may contain hyphens and spaces, but not at the begining or end. and no numbers. 
+        */ 
+
+        function feast (animal, dish) {
+            // so  I need a function that compares the first and last letter of the animal input to the 1st and last letter of the dish input. 
+            // console.log(animal)
+            // console.log(animal.charAt(0));
+            // console.log(animal.slice(-1));
+            // console.log(dish.charAt(0));
+            // console.log(dish.slice(-1));
+            if (animal.charAt(0) === dish.charAt(0)) {
+                console.log('the animal may bring the dish!');
+            }  else {
+                console.log('the animal may not bring the dish');
+            }
+             
+        }
+
+        feast('lion', 'lemon')
+
+        // so I have it halfway working...
+
+
+
+
+</script>
+
+    
+</body>
+</html>
