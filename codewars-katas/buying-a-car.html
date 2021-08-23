@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buying a Car</title>
+</head>
+<body>
+
+    <script>
+        /*
+        Buying a car
+
+A man has a rather old car being worth $2000. He saw a secondhand car being worth $8000. He wants to keep his old car until he can buy the secondhand one.
+He thinks he can save $1000 each month but the prices of his old car and of the new one decrease of 1.5 percent per month. 
+Furthermore this percent of loss increases of 0.5 percent at the end of every two months. Our man finds it difficult to make all these calculations.
+Can you help him?
+How many months will it take him to save up enough money to buy the car he wants, and how much money will he have left over?
+
+1. The old car is worth $2000, and the second hand car is worth $8000. So he needs to save up $6000 before he can sell his old car.
+
+He can save $1000 a month, so idealy 6 months...but
+
+the old cars price decreases 1.5 percent per month. so calculate that
+take ($2000 * 1.5)* 0.01 - so the car loosses $30 the first month 
+
+
+
+       
+
+        console.log(2000 * 1.5 * 0.01)
+        console.log(8000 * 1.5 * 0.01)
+
+        let oldcar = 2000; 
+        console.log(oldcar);
+
+        //for (let car = 2000; car < 6; i++ ){
+        //    car * 1.5 * 0.01;
+        //}
+
+        //console.log(car)
+
+
+        var number = 2000;
+
+        for (var i = 0; i < 6; i++) {
+            number * 1.5 * 0.01;
+            console.log(number);
+        }
+
+ */
+
+ // ok, all my concepts were far far off, here is the offical way to do this problem
+
+ Car.js
+function nbMonths(startPriceOld, startPriceNew, savingperMonth, percentLossByMonth) {
+  //your code here
+  if (startPriceOld >= startPriceNew) {
+    return [0, Math.floor(startPriceOld - startPriceNew)];
+  }
+  
+  let months = 0;
+  let totalSaving = 0;
+  let depreciatedPriceNew = startPriceNew;
+  let depreciatedPriceOld = startPriceOld;
+  let lossPercentage = percentLossByMonth; 
+  while ((totalSaving + depreciatedPriceOld) < depreciatedPriceNew) {
+    months += 1;
+    if (months % 2 === 0) {
+      lossPercentage += 0.5; 
+    }
+    totalSaving += savingperMonth;
+    depreciatedPriceOld -= depreciatedPriceOld * (lossPercentage / 100);
+    depreciatedPriceNew -= depreciatedPriceNew * (lossPercentage / 100);
+  }
+  return [months, Math.round(totalSaving + depreciatedPriceOld - depreciatedPriceNew)];
+}
+
+
+    </script>
+    
+</body>
+</html>
