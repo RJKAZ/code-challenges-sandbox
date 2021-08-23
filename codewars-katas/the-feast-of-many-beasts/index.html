@@ -25,7 +25,7 @@
             // console.log(animal.slice(-1));
             // console.log(dish.charAt(0));
             // console.log(dish.slice(-1));
-            if (animal.charAt(0) === dish.charAt(0)) {
+            if (animal.charAt(0) === dish.charAt(0) && animal.slice(-1) === dish.slice(-1)) {
                 console.log('the animal may bring the dish!');
             }  else {
                 console.log('the animal may not bring the dish');
@@ -33,7 +33,13 @@
              
         }
 
-        feast('lion', 'lemon')
+        feast('lion', 'lemon');
+        feast('lion', 'lime');
+        feast('bear', 'beer');
+        feast('cat', 'candy');
+
+        // problem solved
+
 
         // so I have it halfway working...
 

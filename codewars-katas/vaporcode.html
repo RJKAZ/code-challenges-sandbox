@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V A P O R C O D E</title>
+</head>
+<body>
+    <script>
+/* 
+Write a function that converts any sentence into a V A P O R W A V E sentence. 
+a V A P O R W A V E sentence converts all the letters into uppercase, 
+and adds 2 spaces between each letter (or special character) to create this V A P O R W A V E effect.
+
+function that takes a string, converts it all to uppercase, and adds 2 spaces between each letter. 
+
+
+*/
+
+function vaporware(test) {
+    /* test = test.toUpperCase(); // using the method on its own wouldn't work, I need to re-value the test variable with the method, so test = test(method)
+    console.log(test); // confirming the uppercase works
+    test = test.split("").join(" ");  // using the split method to split the string into an array, and then joining them back together with the join method and an empty string space.  
+     console.log(test);
+   */ 
+    // or in a much quicker code
+   console.log(test.toUpperCase().split("").join(" "))
+ 
+}
+
+vaporware("Time to Kick Ass"); // success
+
+
+
+
+let example = "time to fly"
+
+console.log(example.toUpperCase());
+
+
+let example1 = "time to die"
+console.log(example1.toUpperCase());
+
+
+
+
+
+
+
+
+    
+    </script>
+    
+</body>
+</html>
