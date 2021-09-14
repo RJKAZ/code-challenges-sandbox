@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search 2</title>
+</head>
+
+<body>
+    <h1>So what is a Binary Search?</h1>
+    <h2>Its an efficent way to find a value in an array</h2>
+    <h5>Side note, for Binary Search to work, they do have to be in the right order</h5>
+    <script>
+
+
+
+
+        // now a more naive solution 
+
+        // we write a function that takes in the value we are looking for and the array we are hoping to find that value in 
+        const search = (val, arr) => {
+            // so lets create a forloop, we'll start it at 0, so the index starts at 0. And we will keep it looping so long as the index is less then the length of the array
+            // and on every iteration, we will increment that index 
+            for (let i = 0; i < arr.length; i++) {
+                // so what we want to see if the value that we're search for is equal to the element we are currently on. 
+                if (val === arr[i]) {
+                    // if thats the case, we are going to return that index, and if not, keep on looping
+                    return i;
+                }
+            }
+            //now if it gets the end of the forloop and hasn't found it, we will have it return -1
+            return -1;
+            // and -1 indicates we weren't able to find that element in the array 
+        };
+
+        const values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        console.log(search(7, values));
+        console.log(search(20, values));
+
+        // now while this code works, its not efficent. It took 7 loops to get the answer 
+        // and if the value wasn't there, you would have to look through the entire array and you still wouldn't find it. 
+
+        // not really an issue for an array of 10 numbers, but if the array has hundred, or thousands, or millions of numbers, it would be a huge waste 
+        // Its just too much iterating to find the numbers not even there. 
+
+        // Now the Binary Search Approach is to take the full array, cut it in half, and check to see if our value is in the right or the left half.
+        // For this reason it has to be in the right order. 
+
+        // so lets create a function called binary that takes in the same arguments. 
+
+        const binary = (val, arr) => {
+            // we let the lower value equal 0
+            let lower = 0;
+            // and upper should be the arr length minus 1
+            let upper = arr.length - 1;
+            // so what we're going to do is keep itterating if the lower boundy is still less then or equal to the lower boundry 
+            while (lower <= upper) {
+                // so on each itteration, what we want to do is that the lower and the upper, and check the value thats right in the middle 
+                // we use the math.foor to keep it a whole number
+                const middle = lower + Math.floor((upper - lower) / 2);
+                // so once we have the middle index, we want to check if that is equal to the number we are looking for 
+                if (val === arr[middle]) {
+                    return middle;
+                }
+                // so if we don't find it in the middle, that must mean its on the left side of the middle, or th right side of the middle.
+
+                if (val < arr[middle]) {
+                    // se we have to look at the left side of the middle, we have to reset our upper limit, to be one less then the middle. 
+                    upper = middle - 1;
+                } else {
+                    // else must mean our elment is on the right side or not there at all. 
+                    //so we set the new lower limit to be middle + 1
+                    lower = middle + 1;
+                }
+
+            }
+            //and if it can't find the number, we will still have it return -1
+            return -1;
+        }
+
+        console.log(binary(7, values));
+
+        // this solution works much better, because no matter the value you're searching for, it only takes like 4 actions, unlike Looping that can take many more. 
+
+        // https://www.youtube.com/watch?v=7lGiPItOVCM
+
+
+    </script>
+</body>
+
+</html>

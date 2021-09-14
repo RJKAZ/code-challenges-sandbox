@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search Algorithm</title>
+</head>
+
+<body>
+
+    <h1>Binary Search LeetCode Challenge</h1>
+    <p>Given an array of integers (nums) which is sorted in ascending order, and an integer (target)</p>
+    <p>Write a function to search for the target in the nums</p>
+    <p>If the target number exists in the array, return its index</p>
+    <p>If the target number does not exist in the array, return -1</p>
+
+    <script>
+
+        const arr = [-3, -1, 4, 7, 9, 11, 14, 22, 26, 28, 36, 45, 67, 78, 88, 99]
+
+        const binarySearch = (arr = [], num) => {
+
+            let a = 0;
+            let t = arr.length - 1;
+            while (a <= t) {
+                const mid = Math.floor((a + t) / 2); if (num == arr[mid]) {
+                    return mid;
+                }
+                else if (num < arr[mid]) {
+                    t = mid - 1;
+                } else {
+                    a = mid + 1;
+                };
+            };
+            return -1
+        };
+
+        console.log(binarySearch(arr, 22));
+        console.log(binarySearch(arr, 23));
+
+
+
+
+    </script>
+
+</body>
+
+</html>
