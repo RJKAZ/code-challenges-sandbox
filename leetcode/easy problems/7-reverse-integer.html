@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Integer</title>
+</head>
+
+<br>
+<h1>Leet Code Easy Problem 7 - reverse Integer</h1>
+<p>Given a signed 32-bit integer x, return x with its digits reversed.</p>
+<p>If reversing x causes the va;ue to go outside the signed 32-bit integer range, then return 0</p>
+<p>[-2^31, 2^31 -1]</p>
+
+</br>
+
+<p>Ok...how the hell is this an easy problem? I get the whole reversing an integer, but this whole 32-bit shit is a
+    whole different matter
+</p>
+
+<p>I will solve this very basely at reversing an integer, then I'll try and figure out the 32 bit shit.</p>
+<script>
+
+    function reverseNum(number) {
+        console.log(parseInt(number.toString().split("").reverse().join("")))
+    };
+
+    reverseNum(3029);
+    // so that was sort of the simple way to do it, but here's the offical way 
+    //redquark.org/leetcode/0007-reverse-integer/
+
+
+    /*
+
+
+    Proper Answer - To reverse an integer, we only have to make the most significant digit as the least significant and vice verse
+    and the second most significant digit to the second least significant digit and vice versa, and so one
+    
+    there are a few things we need to keep in mind
+    1. If the input is negative the output will also be negative - my above easy solution doesn't account for that
+    2. If the input if greater thn the given range (-2^31, 2^31 -1), return 0
+
+    Here's the approach
+    1. First we find out if the number if negative, then we will store this information 
+    2. First store the result in a data type which if bigger then an interger 
+    3. Divide the number repeatedly by 10 untill the number becomes zero
+    4. After the loop, check if the output is greater then the range (-2^31, 2^31 -1)
+    5. At last, return the output with the correct sign (positive or negative)
+
+    Time Complexity - since we are going throiugh the entire number, digit by digit, the time complexity should be )(log10^N)
+    The reason behind log10 is because we are dealing with integers which are base 10
+
+    Space Complexity - We are not using any data structures for interim operations, therefore Space complexity is O(1)
+    
+    So at long last, the Javascript solution
+    */
+
+    var reverse = function (x) {
+        // declaring a variable of isNegative and setting it to the boolean value of false
+        let isNegative = false;
+        // if x is less then zero
+        if (x < 0) {
+            // change the value of isNegative from false to true, and make x negative
+            isNegative = true;
+            x = -x
+        }
+        // create a new variable called reverse and set it to 0
+        let reverse = 0;
+        // while x is greater then 0
+        while (x > 0) {
+            // set the reverse variable equal to reverse times 10 + x divided by 10
+            reverse = reverse * 10 + x % 10;
+            // revalue x to make sure its a number by isng parseInt taking in the argument of x divied by 10
+            x = parseInt(x / 10);
+        }
+        if (reverse >= Math.pow(2, 31) - 1 || reverse <= Math.pow(-2, 31)) {
+            return 0;
+        }
+        return isNegative ? -reverse : reverse
+    }
+
+
+    console.log(reverse(2039));
+
+    /* now this solution uses a method I've never seen before Math.pow
+    Math.pow() return the base to the exponent power as in base^exponent
+    (no clue what this means)
+    */
+
+    console.log(Math.pow(7, 3));
+    // this returns 343
+    // ok, I think I get it....passing in two numbers in Math.pow takes the first number to the power set by the second number
+    // 7 times 7 times 7 = 343
+
+    console.log(Math.pow(4, 0.5));
+
+
+
+
+</script>
+
+</body>
+
+</html>
