@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrone Problem</title>
+</head>
+
+<body>
+    <h1>Leet Code Easy Problem 9</h1>
+
+    <script>
+        /* Given an integer x, return true if x is a palindrome integer
+        An integer is a Palindrome when it reads the same backward as forward. For example, 121 is palindrome, while 123 is not. 
+        
+        Anaylsis 
+    
+        We need to find if a given number is a palindrome or not. A palindrome number is one which when reversed gives the same number. 747 is a palindrome, where as 526 isn't since reversed it is 625
+    
+        Also, negative numbers are not palindrones because they start with - and when reversed the -sign will come at the end which is invalid. Therefor we only check for positive numbers.
+    
+        Approach 
+        1. If the number is negative, return false, else proceed to #2
+        2. Store the given number (x) in a variable 'number'. We are doing it becasue we will perform our operations on 'number' and due to that, its value will change. 
+            We will use x at the end of the program to compare with the reversed number
+        3. Reverse the number
+        4. return true if the reverse number and the given number are equal, false otherwise
+    
+        Time Complexity
+        Since we are going through the entire number digit by digit, the time complexity should be O(log10^n)
+        The reason behind log10 is because we are dealing with integers which are base 10
+    
+        Space Complexity - We are not using any data structure for interim operations, therefore the space complexity is 0(1)    
+        
+        */
+
+        var isPalindrome = function (x) {
+            // base condition, to get rid of negative numbers
+            if (x < 0) {
+                return false
+            }
+            // store the number in a variable
+            let number = x;
+            // this will store the reverse of the number
+            //making a reverse variable and setting it to 0
+            let reverse = 0;
+
+            while (number > 0) {
+                reverse = reverse * 10 + number % 10;
+                number = parseInt(number / 10);
+            }
+            return x === reverse;
+
+        };
+
+        console.log(isPalindrome(121))
+        console.log(isPalindrome(123))
+
+
+    </script>
+
+</body>
+
+</html>
