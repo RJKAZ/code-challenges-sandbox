@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roman to Integers</title>
+</head>
+
+<body>
+    <script>
+        // ok...this one makes no sense to me, but its converting Roman numerals to integers
+        // There are a few constraints -
+        // 1 <= s.length <= 15
+        // s contains only the characters ("I", "V", "X", "L", "C", "D", "M")
+        // It is guarnteed that s is a valid roman numeral in the range [1, 3999]
+        /*
+        So basicly we will be a given a number between 1 and 3999, and we will have to convert in into corresponding Roman equivilent
+        Some Roman symbols and their equivalent integer values are already given. Only thing we need to notice is the cases where subtraction is used
+
+        This problem should be very simple to solve. Since the max number is 3999, we can only have four places. - Ones, tens, hundreds, and thousands
+
+        Thus, we will create four arrays with all the possible combination of places. Since 0 doesn't make any impact, we will put 0th place of every as an empty string 
+
+        The four arrays will be like below     
+    
+
+        M = ["", "M", "MM", "MMM"]
+        C = ["", "C", "CC", "CCC","CD", "D", "DC", "DCC", "DCCC", "CM" ]
+        X = ["", "X", "XX", "XXX","XL", "L", "LX", "LXX", "LXXX", "XC" ]
+        I = ["", "I", "II", "III","IV", "V", "VI", "VII", "VIII", "IX" ]
+
+        
+        Lets understand this with an example num = 2467
+        - Thousands place -> 2
+        - Hundred place -> 4
+        - Tens place -> 6
+        - Ones place -> 7
+
+        If we get the corresponding values from the arrays, then we will get M[2], C[4], X[6], and I[7]
+
+        the output will be MMCDLXVII
+
+        Time Complexity - We are scanning each digit of the number one by one, therefore the time complexity will be O(log10^n)
+
+        But n cannot be greater then 3999, therefore the maxium time can be O(loh10^3999)~=0(3.60) which is constant hence the overall time complexity will be 0(1)
+
+        Space Complexity 
+
+        We are using four Arrays who sizes don't depend on the input size hence the space complexity will be 0(1)
+        
+        
+        
+        */
+
+
+        var romanToInt = function (s) {
+            const M = ["", "M", "MM", "MMM"]
+            const C = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
+            const X = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+            const I = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
+            return M[Math.floor(s / 1000)] + C[Math.floor((s % 1000) / 100)] + X[Math.floor((s % 100) / 10)] + I[s % 10];
+
+        };
+
+        console.log(romanToInt("MCMXCIV"));
+
+
+        // ok...this solution from what I can tell doens't work, and I don't understand really any of it. Pray I don't get asked this specific question.
+
+        // https://redquark.org/leetcode/0012-integer-to-roman/
+
+    </script>
+
+
+</body>
+
+</html>
