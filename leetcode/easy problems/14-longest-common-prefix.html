@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longest Common Prefix
+    </title>
+</head>
+
+<body>
+    <script>
+        /* Offical Question
+        Write a function to find the longest common prefix string amongst an array of strings
+        if there is no common prefix, return an empty string ""
+
+        example 
+        - Input - strs = ["flower", "flow", "flight"]
+        output: "fl"
+
+        constraints 
+        - 1 <= strs.length <= 200
+        - 0 <= stars[i].length <= 200
+        - strs[i] consists of only lower case english letters
+        */
+
+        /*
+        Red Quark Solution 
+        As per the question, we will be given an array of some strings which can be varying lengths, We only have to find first n characters which appear in each string between the indices 0 and n - 1.
+
+        It is clear that the common characters cannot be more then the lemgth of the shortest string of all the given strings. Therefor, we will first find the shortest string amongst all strings and check maxium characters of it are present in all the other strings
+
+        If not a single character is present in all the other string, we will return an empty string 
+
+        The Approach
+        1. First we will find the shortest string and its length
+        2. Secondly we will take the first string and match its each character one by one with all the other strings
+        3. As soon as we encounter a character which does not match we will break out of the loop
+
+        Time Complexity
+        If n is the length of the array and m is the length of the shorest string, the worst case time complexity will be O(m x n)
+
+        Space Complexity 
+        Since we are not using any internal data structure for intermediate computations, the space complexity will be O(1) 
+    
+        
+        */
+
+        var longestCommonPrefix = function (strs) {
+            // setting the variable of longestCommonPrefix to an empty string value
+            let longestCommonPrefix = " ";
+            // Base condition
+            // if the strs are equal to null or their length is equal to zero, we will return an empty string
+            if (strs == null || strs.length == 0) {
+                return longestCommonPrefix;
+            }
+            // setting a minimumLength variable and setting it equal to the length of the 0 index of the strs array 
+            let minimumLength = strs[0].length;
+            // looping over every iteration in the array 
+            for (let i = 1; i < strs.length; i++) {
+                minimumLength = Math.min(minimumLength, strs[i].length);
+            }
+            // get the current character from the first string
+            //  loop for the minimun length
+            for (let i = 0; i < minimumLength; i++) {
+                let current = strs[0][i];
+                // check if this character is found in all other strings or not
+                for (let j = 0; j < strs.length; j++) {
+                    if (strs[j][i] != current) {
+                        return longestCommonPrefix
+                    }
+                }
+                longestCommonPrefix += current;
+
+
+            }
+            return longestCommonPrefix;
+
+        };
+
+        console.log(longestCommonPrefix(["flower", "flow", "flight"]))
+
+    </script>
+
+</body>
+
+</html>
