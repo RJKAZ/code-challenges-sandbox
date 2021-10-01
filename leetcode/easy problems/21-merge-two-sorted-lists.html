@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Two Sorted Lists</title>
+</head>
+
+<body>
+    <script>
+        /* Leet Code Problem 
+        Merge Two Sorted Linked Lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.
+        
+        Input: l1 = [1,2,4], l2 = [1,3,4]
+        Output: [1,1,2,3,4,4]
+
+        constraints 
+        - The number of nodes in both lists is in the range [0, 50]
+        - -100 <= Node.val <= 100
+        - Both l1 and l2 are sorted in non decreasing order
+        */
+
+        /* RedQuark Solution 
+        We will be given two sorted linked lists, and we need to merge them in such a way that the resultant list will also be sorted. Lists are sorted in the non-decreasing order, therefore the resultant list should also be in non-decreasing order.
+
+        Approach. 
+        1. Check is any of the lists is emtpy
+        2. First we need to determine the head of the resultant list. This head will be smaller of the heads of the given lists. 
+        3. Loop through each node of the lists until one of the lists gets traversed completely. 
+        4. While traversing the lists, identify smaller of the nodes of the lists and add it to the resultant list. 
+        5. Once the loop is complete, there may be a case where a list has nodes remaining. We will add those remaining nodes to the resultant list
+
+        Time Complexity 
+        If the number of nides are m and n in both lists, then the overall time complexity will be O(m+n) becasue we are traversing all the nodes of both the lists. 
+
+        Space Complexity 
+        We are creating a list to store our result. But we are not using it as part of our intermediate computations. Hence the space complexity according to me will be O(1);
+        */
+
+        var mergeTwoLists = function (l1, l2) {
+            // first we will check if either list is null
+            if (!l1) {
+                return l2;
+            }
+            if (!l2) {
+                return l1;
+            }
+            // New variable for the head of the linked list - this is the head of the resultant list
+            let head = null;
+            // the reference of head which is null at this point
+            let temp = head;
+            // choose the head that is the smaller of the two lists
+            if (l1.val < l2.val) {
+                temp = head = new ListNode(l1.val);
+                l1 = l1.next;
+            } else {
+                temp = head = new ListNode(l2.val);
+                l2 = l2.next;
+            }
+            // loop until any of the list becomes null
+            while (l1 && l2) {
+                if (l1.val < l2.val) {
+                    temp.next = new ListNode(l1.val);
+                    l1 = l1.next;
+                    temp = temp.next;
+                } else {
+                    temp.next = new ListNode(l2.val);
+                    l2 = l2.next;
+                    temp = temp.next;
+                }
+            }
+            // add all the nodes in l1, if remaining
+            while (l1) {
+                temp.next = new ListNode(l1.val);
+                l1 = l1.next;
+                temp = temp.next;
+            }
+            // add all the nodes in l2, if remaining
+            while (l2) {
+                temp.next = new ListNode(l2.val);
+                l2 = l2.next;
+                temp = temp.next;
+            }
+            return head;
+        };
+
+        function ListNode(val, next) {
+            this.val = (val === undefined ? 0 : val)
+            this.next = (next === undefined ? null : next)
+        }
+
+        console.log(mergeTwoLists([1, 2, 4], [1, 3, 4]));
+    </script>
+
+</body>
+
+</html>
