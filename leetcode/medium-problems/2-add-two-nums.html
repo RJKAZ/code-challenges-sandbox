@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Note to self, learn what linked lists are, and brush up on ternerary operators</h1>
+
+
+    <script>
+        var addTwoNumbers = function (l1, l2) {
+            // declaring a variable of carry and setting it to the number value of 0
+            var carry = 0;
+            // declaring a variable of sum and setting it to the number value of 0
+            var sum = 0;
+            // declaring a variable of head and setting it new ListNode(0);
+            var head = new ListNode(0);
+            // declaring a new variable called now and setting it equal to the value of head
+            var now = head;
+            // declaring the l1 variable as a
+            var a = l1;
+            //declaring the l2 variable as b
+            var b = l2;
+            // so while a and b are not equal to null
+            while (a !== null || b !== null) {
+                sum = (a ? a.val : 0) + (b ? b.val : 0) + carry;
+                carry = Math.floor(sum / 10);
+                now.next = new ListNode(sum % 10);
+                now = now.next;
+                a = a ? a.next : null;
+                b = b ? b.next : null;
+            }
+            if (carry) now.nest = new ListNode(carry);
+            return head.next;
+
+        };
+
+
+    </script>
+    
+</body>
+</html>
