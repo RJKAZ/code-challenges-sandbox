@@ -1,20 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>longest substring</title>
 </head>
+
 <body>
     <script>
         // given a string 's' find the length of the longest substring without repeating characters
         // constraints 0 <= s.length <= 5 * 10^4
         // 's' consists of English letters, digits, symbols, and spaces. 
-        var lengthOfLongestSubstring = function(s) {
+
+        /*
+        The input will be a string containing characters which may or may not be repeated. The ask is to find the longest substring (a part of a the given string) having all distinct characters
+        One characteristic of a substring is that all characters are contiquous. For eg, in a given string, s = redquark, the valid substrings are - edg, ar, red, quar etc.
+
+        The substrings rd, qur are not valid substrings because even though they contain characters from the source string, those characters are not continuous.
+
+        apart from the above we are given constraints on the size of the string and the characters that are present in a string
+
+        there can be many substrings as outputs but we have to return only the longest among them. 
+
+        Approach -
+        Sliding Window Algorithm
+        From the input we can gather the following information -
+        1. given the data structure is a string which is a linear data structure
+        2. the output must be a substring - a part of the given string 
+        3. native solution is to check for each combination of characters in the string
+
+        This is the legendary Sliding Window Algorithm
+
+        Following are the steps we will follow
+        1. Have two pointers which will define the starting index start and ending index end of the current window. Both will be 0 at the beginning.
+        2. Declare a "Set" that will store all the unique characters that we have encountered.
+        3. Declare a variable maxLength that will keep track of the length of the longest valid substring.
+        4. Scan the string from left to right one character at a time.
+        5. If the character has not encountered before ie...not present in the "set" we will add it and increment the end index. the maxlength will be maximum of Set.Size() and existing maxLength.
+        6. If the character has encountered before ie., present in the Set, we will increment the Start and we will remove the character at start index of the string 
+        7. Steps #5 and #6 are moving the window
+        8. After the loop terminates, return maxLength
+
+        Time Complexity - We are scanniong the string from left to right only once, hence the time complexity will be O(n)
+        Space Complexity - We are using 'Set' as a data structure to facilitate our computation, therefore the space complexity should also be O(n) right? wrong
+
+        Why wrong?
+
+        The  problem clearly states that the string only contains English letters, digits, symbols, and spaces and are covered in 256 code points. Therefore a string will be makde up of a combination of these characters.
+
+        Since a 'Set' can contain only unique elements, at any point the size of a Set cannot be more then 256.
+
+        What does this mean? this means that the size of a set is a function indepenedent of the size of the input. It is a constant, therefore the space complexity will be O(1)
+        */
+        var lengthOfLongestSubstring = function (s) {
+            // base condition 
+            if (!s) {
+                return 0;
+            }
+            // starting index of the window
+            let start = 0;
+            // ending index of the window
+            let end = 0;
+            // max length of the substring
+            let maxLength = 0;
+            // set to store the unique characters
+            const uniqueCharacters = new Set();
+            // Loop for each character in the string
+            while (end < s.length) {
+                if (!uniqueCharacters.has(s[end])) {
+                    uniqueCharacters.add(s[end]);
+                    end++;
+                    maxLength = Math.max(maxLength, uniqueCharacters.size);
+                } else {
+                    uniqueCharacters.delete(s[start]);
+                    start++;
+                }
+            }
+            return maxLength;
 
         };
-        </script>
-    
+
+        console.log(lengthOfLongestSubstring("abcabcbb"));
+    </script>
+
 </body>
+
 </html>
