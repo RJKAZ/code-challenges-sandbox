@@ -18,10 +18,40 @@
 
         input: haystack = "hello", needle = " ll"
         output: 2
+
+        Redquark Solution 
+
+        This problem can be rephrased in simple words as, give two strings 'haystack' and 'needle', find if needle is present in haystack. 
+        We can easily do this by using libary methods but since this is an algorithmic problem we not do so.
+
+        We will follow the following steps
+        1. Take the lenght of the needle as needleLength
+        2. Scan the haystack from left to right
+        3. Check is substrings of length 'needlelenght' are present in it. 
+
+        time complexity - The string is traversed once so the time complexity will be O(n)
+        Space Complexity - We may have to create n substrings of length 1 each, therefore the space copmplexity will also be O(n)
         
         */
 
         var strStr = function (haystack, needle) {
+            // Base Condition 
+            if (haystack == null || needle == null) {
+                return -1;
+            }
+            // special case
+            if (haystack === needle) {
+                return 0;
+            }
+            // length of the needle
+            const needleLength = needle.length;
+            // Loop throuhg the haystack and slide the window
+            for (let i = 0; i < haystack.length - needleLength + 1; i++) {
+                if (haystack.substring(i, i + needleLength) === needle) {
+                    return i;
+                }
+            }
+            return -1;
 
         };
     </script>
