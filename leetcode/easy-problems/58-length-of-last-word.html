@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last Word</title>
+</head>
+<body>
+    <script>
+        /*
+        Given a string s consisting of some words seperated by some number of spaces, return the length of the last word in the string.
+        a word is a maximal substring consisting of non-space characters only
+
+        example 1 -
+        Input: s = 'Hello World'
+        Output: 5
+        why? The last word is "World" with a length of 5
+       */
+
+        /*
+        Solution from https://rishabh1403.com/posts/coding/leetcode/2020/03/leetcode-length-of-last-word
+
+        We will take the following steps
+        1. First we will trim the sentence, it will remove extra white spaces from both ends of the string
+        2. Next we'll split the sentence by a space character which will give us a list of all the words
+        3. At last, we'll check if the word list has any entries, if yes, we'll return the length of the last word
+
+        Time Complexity 
+        - we are splitting the sentecne into words which are dependent on the length of the string. So the time complexity is O(n)
+
+        Space Complexity 
+        - We are using extra space to store words in an array, thus space complexity would be O(n)
+        
+        */
+
+
+        var lengthofLastWord = function(s) {
+            const words = s.trim().split(" ");
+            return words.length > 0 ? words[words.length -1].length : 0;
+        };
+
+        console.log(lengthofLastWord("time to have some fun"));
+        </script>
+    
+</body>
+</html>
