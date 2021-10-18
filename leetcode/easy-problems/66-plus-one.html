@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plus One</title>
 </head>
+
 <body>
     <script>
         /*
@@ -22,10 +24,30 @@
 
         */
 
-        var plusOne = function(digits) {
-
+        var plusOne = function (digits) {
+            // creating a variable of i and setting its value the length of the digits minus 1
+            var i = digits.length - 1;
+            // creating a val variable set to 0
+            var val = 0;
+            // creating a carry variable set to 1;
+            var carry = 1;
+            // while the i variable is greater then or equal to 0 and the carry variable
+            while (i >= 0 && carry) {
+                // this code I'm not sure what its doing 
+                val = digits[i] + carry;
+                // this is setting the carry variable to the largest integer less or equal to the val variable divided by 10
+                carry = Math.floor(val / 10);
+                digits[i] = val % 10;
+                //decrements the i
+                i--;
+            }
+            if (carry) digits.unshift(carry);
+            return digits;
         };
+
+        console.log(plusOne([1, 2, 3]))
     </script>
-    
+
 </body>
+
 </html>
