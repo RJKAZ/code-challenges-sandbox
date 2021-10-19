@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>67 Add Binary</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Given two binary strings a and b, return their sum as a binary string
+
+        input: a = "11", b = "1"
+        Output: "100"
+
+        dev.to solution
+
+        We will use the same approach that we use for adding two decimal numbers
+        1. Keep a variable 'carry'
+        2. Scane the strings from right to left
+        3. Calculate the sum by adding the two bits represented by the characters and add carry to it.
+        4. Take the sum modulo 2(sum % 2) and add it in the front of the existing result string
+        5. Update the carry by taking Sum/2 for the next iteration
+        6. Check if the value of the carry is more than zero after the last iteration and if exists, add it to the front of the result 
+        
+        
+        */
+
+        var addBinary = function (a, b) {
+            //resultant string
+            let result = "";
+            // indices for a and b
+            let i = a.length - 1;
+            let j = b.length - 1;
+            // carry
+            let carry = 0;
+            while (i >= 0 || j >= 0) {
+                //sum of two bits
+                let sum = carry;
+                if (i >= 0) {
+                    sum += b[j--] - '0';
+                }
+                if (j >= 0) {
+                    sum += b[j--] - '0';
+                }
+                // add the bit to the result
+                result = sum % 2 + result;
+                // modify carry
+                carry = parseInt(sum / 2);
+            }
+            // final check if carry exists
+            if (carry > 0) {
+                result = 1 + result;
+            }
+            return result;
+        }
+
+        console.log(addBinary("11", "1"));
+    </script>
+
+</body>
+
+</html>
