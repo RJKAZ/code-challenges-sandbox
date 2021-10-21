@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verizon Code Challenge</title>
+</head>
+
+<body>
+    <h1>This is a verizon code challenge I had</h1>
+    <h2>The problem was essentially to conert an array into a JSON Object with everything properly nested</h2>
+
+    <script>
+
+        var input = ['animal/mammal/dog', 'animal/mammal/cat/tiger', 'animal/mammal/cat/lion', 'animal/mammal/elephant', 'animal/reptile', 'plant/sunflower']
+
+        result = (buildObj = (array, Obj = {}) => {
+            array.forEach((val) => {
+                keys = val.split('/');
+                (nestedFn = (object) => {
+                    outKey = keys.shift();
+                    object[outKey] = object[outKey] || {};
+                    if (keys.length == 0) object[outKey] = true;
+                    if (keys.length > 0) nestedFn(object[outKey]);
+                })(Obj)
+            })
+            return Obj;
+        })(input);
+
+        console.log(result);
+
+    </script>
+
+</body>
+
+</html>
