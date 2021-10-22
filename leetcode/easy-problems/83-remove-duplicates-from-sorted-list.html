@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Duplicates from Sorted List</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Given the head of a sorted linked list, delete all duplicates such that each element appears only once.
+        Return the linked list sorted as well
+
+        example 
+        input: head = [1,1,2]
+        output: [1,2]
+        */
+
+        /*solution from Medium.com
+
+        There are two ways to think about this problem
+
+        1. Compare each element and remove the nide with the same throughout iteration
+        2. Compare each element and relink after the value are different
+
+        */
+
+
+
+        var deleteDuplicates = function (head) {
+            let current = head;
+            // condition, we have to loop over the linked list
+            while (current !== null && current.next !== null) {
+                if (current.val === current.next.val) {
+                    current.next = current.next.next;
+                } else {
+                    current = current.next;
+                }
+            }
+            return head;
+        };
+
+// this solution works, but I couldn't get a console.log to work 
+
+// https://www.youtube.com/watch?v=gfgJjrkR-W4
+
+
+
+    </script>
+
+</body>
+
+</html>
