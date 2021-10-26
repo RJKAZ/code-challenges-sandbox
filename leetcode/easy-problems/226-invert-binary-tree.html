@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lets Invert a Damn Binary Tree</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Given the root of a binary tree, invert the tree and return its root
+
+        input: root = [4,2,7,1,3,6,9]
+        output: [4,7,2,9,6,3,1]
+
+                        4
+                2                7
+            1       3       6       9
+        
+            solution from code intern
+
+            to invert a Binary Tree, what we simply have to do is swap the left and right values
+
+            The recursive way to solve this is to think of almost like a JSON object (below and figure out where you you swap the values)
+          
+
+
+        {
+            "val": 4;
+            "left": {
+                "val": 2,
+                "left": {
+                    "val": 1,
+                    "left": null,
+                    "right": null
+                },
+                "right": {
+                    "val": 3,
+                    "left": null,
+                    "right": null,
+                }
+            }
+            "right": {
+                "val": 7,
+                "left": {
+                    "val": 6,
+                    "left": null,
+                    "right": null
+                },
+                "right": {
+                    "val": 9,
+                    "left": null,
+                    "right": null,
+                }
+            }
+        }
+        */
+
+        // definition of a Binary tree node
+
+        function treeNode(val, left, right) {
+            this.val = (val === undefined ? 0 : val)
+            this.left = (left === undefined ? null : left)
+            this.right = (right === undefined ? null : right)
+        }
+
+        var invertTree = function (root) {
+            // if the root is null, return the root
+            if (root === null) return root;
+
+            [root.left, root.right] = [root.right, root.left]
+
+            invertTree(root.left)
+            invertTree(root.right)
+
+            return root
+        };
+
+        // Another solution  - 
+
+        /*
+        start transversing from the root, which is only one element and thus cannot be swaped
+
+
+        
+        */
+
+        function invertTree2(head) {
+            if (head) {
+                var temp = head.left;
+                head.left = head.right;
+                head.right = temp;
+
+                invertTree2(head.left);
+                invertTree2(head.right)
+            }
+
+            return head;
+        }
+
+
+
+    </script>
+</body>
+
+</html>
