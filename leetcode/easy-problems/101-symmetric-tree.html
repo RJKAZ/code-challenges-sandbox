@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symmetric Tree</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Given the root of a binary tree, check whether it is a mirror of itself , symmetric around its center)
+
+        Input: root = [1,2,2,3,4,4,3]
+        output: true
+
+        Input: root = [1,2,2,null, 3, null, 3]
+        output: false
+        
+        */
+
+        var isSymmetric = function (root) {
+            if (!root) return true;
+            return helper(root.left, root.right)
+        };
+
+        var helper = function (p, q) {
+            if ((!p && q) || (p && !q) || (p && q && p.val !== q.val))
+                return false;
+            if (p && q) return helper(p.left, q.right) && helper(p.right, q.left);
+            return true;
+        };
+
+        // this solution has a time complexity of O(n)
+        // this solution also has a space complexity of O(1)
+
+        // here is another solution were both complexities are O(n)
+
+        var isSymmetric2 = function (root) {
+            if (!root) return true;
+
+            var p = [root.left];
+            var q = [root.right];
+            var ll = null;
+            var rr = null;
+
+            while (p.length && q.length) {
+                ll = p.pop();
+                rr = q.pop();
+
+                if (!ll && !rr) continue;
+                if (!ll || !rr) return false;
+                if (ll.val !== rr.val) return false;
+
+                p.push(ll.left);
+                p.push(ll.right);
+                q.push(rr.right);
+                q.push(rr.left);
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
