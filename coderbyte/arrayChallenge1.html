@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coderbyte Array Challenge 1</title>
+</head>
+
+<body>
+    <p>All the fun will be in the console log</p>
+    <script>
+        /*
+        Have the functon arrayChalleng take the array of integers stored in Arr, and find the four largest elements in their sum. 
+        For example, if arr is [4,5,-2,3,1,2,6,6] then the four largest elements in the array at 6,6,4,5 and the total sum of these numbers is 21
+        so the program should return 21. If there are less then 4 numbers in the array, your program should return the sum of all the numbers
+        */
+
+        function ArrayChallenge(arr) {
+            let sum = 0;        // variable to hold the sum
+            if (arr.length < 4) {   // if/else statement - if the arrays length is less then 4
+                for (let i = 0; i < arr.length; i++) { // we will loop thru the array
+                    sum += arr[i] // and add all the elements in it
+                }
+            } else {   // else
+                arr.sort((a, b) => b - a); // we will take the array and sort it in decending order, the 4 highest numbers are at the front of the array
+                arr.length = 4; // using the lenght method, we will essentiall cut the Array to the 1st 4 indexes. Setting its length to 4
+                for (let i = 0; i < arr.length; i++) { //Loop thru the array 
+                    sum += arr[i] // and add all the elements in it
+                }
+            }
+            arr = sum; // Make the value of arr = to sum 
+            console.log(arr); // console log the arr
+        }
+
+        ArrayChallenge([1, 19, 2, 3, 7, -4, 8]) // its organized as [19,8,7,3,2,1,-4] but the lenth is now set to just the first 4, to 19,8,7, and 3. = 37
+        ArrayChallenge([19, 7, 8]) // since there are only 3 elements, they are all added to create 34. 
+
+    </script>
+</body>
+
+</html>
