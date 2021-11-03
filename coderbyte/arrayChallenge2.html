@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Hard Array Challenge </title>
+</head>
+
+<body>
+
+    <script>
+
+        /*
+        Have the function ArrayChallenge(arr) read the array of integers stored in arr which will be formated [K, r1, r2, r3,...]
+        K represents the number of desks in a classroom. 
+        The rest of the integers will be in sorted order and will represent the desks thate are already occupied. 
+        All of the desks will be arranged in 2 columns, where desk 1 is at the top left, desk 2 is at the top right, desk 3 is below 1, and desk 4 is below 2, etc
+        The program should return the number of ways 2 students can be seated next to each other. 
+        This means 1 student is on the left and 1 student is on the right
+        or the 1 student is directly above or below the other student
+
+        so the arr of [12,2,6,7,11]
+
+        the classroom should look like this
+
+        1 2
+        3 4
+        5 6
+
+        
+        */
+
+        function SeatingStudents(arr) {
+
+            const numberOfSeats = arr.shift() // this is making a variable numberOfSeats with the value of the 1st element in the array thats returned by using the shift method
+            const numberOfRows = Math.round(numberOfSeats / 2); //variable for number of rows that is equal to the numberOfSeats divided by 2 and then rounded down to avoid decimals
+            const seat = []; // creating a variable of seat eqaul to an empty array 
+            let idx = 0; // creating a variable of idx and setting it to 0
+            for (row = 0; row < numberOfRows; row++) { // looping thru the row
+                seat.push([]);  // using the push method to add a new item to the end of the seat array which is still empty
+                for (col = 0; col < 2; col++) {
+                    const isOccupied = arr.indexOf(idx + 1) > -1 ? true : false;
+                    seat[row].push(isOccupied);
+                    idx++;
+                }
+                console.log(seat[row].join("-"));
+            }
+
+            let seating = 0;
+            for (let i = 0; i < numberOfRows - 1; i++) {
+                if ((seat[i][0] === false) && (seat[i][1] === false)) seating++;
+                if ((seat[i][0] === false) && (seat[i + 1][0] === false)) seating++;
+                if ((seat[i][1] === false) && (seat[i + 1][1] === false)) seating++;
+            }
+
+            // check if last row is empty
+            if ((seat[numberOfRows - 1][0] == false) && (seat[numberOfRows - 1][1] == false)) seating++;
+            return seating;
+        }
+
+        console.log(SeatingStudents([12, 2, 6, 7, 11]))
+    </script>
+
+</body>
+
+</html>
