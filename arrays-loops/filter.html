@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Method</title>
+</head>
+
+<body>
+
+    <p>Going to practice the filter method</p>
+    <script>
+        // the Filter Method creates an array filled with all array elements that pass a test (provided by a function )
+
+
+        //so in this example we will take an array of ages
+
+        const ages = [32, 33, 16, 40]
+
+        // make a function that checks if a number is over 18
+
+        function checkAdult(age) {
+            return age >= 18;
+
+        }
+        // if so it returns true or false 
+        console.log(checkAdult(22));
+        console.log(checkAdult(13));
+
+        // to use the filter method in this context, I'm using the filter method on the age variable and passing in the function
+
+        const newAges = ages.filter(checkAdult); // this is a new variable set to the value of returns the age array with only the values over 18
+        console.log(newAges);
+        console.log(ages); // this returns the original arrya with still exists.
+
+        // now lets try a more complicated example, lets take a Array of City Objects with each object containing two properties
+
+        let cities = [
+            { name: 'Sydney', population: 5000000 },
+            { name: 'Melbourne', population: 4000000 },
+            { name: 'Brisbane', population: 3000000 },
+            { name: 'Perth', population: 2000000 },
+            { name: 'Adelaide', population: 1000000 },
+        ]
+
+        // to find the cities whose populations are over 3 mil, you would typically loop over the array elements using a for loop and test if the value of the population satisfies the condition 
+
+        let bigCities = [];
+        for (let i = 0; i < cities.length; i++) {
+            if (cities[i].population >= 3000000) {
+                bigCities.push(cities[i]);
+            }
+        }
+
+        console.log(bigCities);
+
+        // the filter method allows us to do this much easier 
+
+        let biggerCities = cities.filter(function (e) {
+            return e.population >= 3000000;
+        })
+        console.log(biggerCities);
+
+        // so this returns the same 
+
+        // you can also writed it as an arrow function to make it cleaner
+
+        let biggestCity = cities.filter(city => city.population > 4000000);
+        console.log(biggestCity)
+
+        // becasue the filter method returns a new array, you can chain it with other iterative methods such as sort and map
+
+        // as them all seperate
+
+        console.log(cities.filter(city => city.population < 3000000)) // returns the populations less then 3 mil
+        console.log(cities.sort((c1, c2) => c1.population - c2.population)); // sorts the cites by population in decending order
+        console.log(cities.map(city => (city.name + ":" + city.population))); // shows each object in the array joing into a single string, making a simple array 
+
+
+        cities.filter(city => city.population < 3000000).sort((c1, c2) => c1.population - c2.population).map(city => console.log(city.name + ':' + city.population));
+
+        // kind of long, but this is all 3 mehtods changed together. and returns cities with the population lower then 3 mil, in decending order, and name and population joined into single strings. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
