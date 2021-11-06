@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Method Practice</title>
+</head>
+
+<body>
+    <script>
+
+        // the purpose of the sort method is to arrange/sort an array's elements in either acending or decending order
+
+        /*
+        Some rules with this method. 
+        1. It sorts the elements of an array
+        2. Its overrights the original array - it does not create a new one, but modifies the old one. 
+        3. It will sort the elements as strings in alphabetical and ascending order. 
+        */
+
+        const zFighters = ["Goku", "Vegita", "Krillian", "Piccolo", "Gohan"];
+        const powerLevels = [10000, 9000, 870, 1200, 4000];
+
+        // sorting the power levels in decending order
+
+        let decOrderedPowerLevels = powerLevels.sort((a, b) => a > b ? -1 : 1);
+        console.log(decOrderedPowerLevels);
+
+        // sorting the power levels in acending order
+
+        let accOrderedPowerLevels = powerLevels.sort((a, b) => a > b ? 1 : -1);
+        console.log(accOrderedPowerLevels);
+
+        let decZFighters = zFighters.sort((a, b) => a > b ? -1 : 1);
+        console.log(decZFighters);
+
+        let accZFighters = zFighters.sort((a, b) => a > b ? 1 : -1);
+        console.log(accZFighters);
+        console.log(zFighters);
+
+
+        // this method can also be used somewhat simpiler without the whole a/b thing
+
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        console.log(fruits);
+        fruits.sort();
+        console.log(fruits);
+
+        // in case of strings, just using it as sort() will retun in acending order alpabetically;
+
+        // Numbers are a little weird with just using sort()
+        // since it kind of views them as strings, acending this below array in acending order is kind of wierd
+
+        const numbers = [10, 2, 20, 100];
+        console.log(numbers);
+        numbers.sort();
+        console.log(numbers);
+
+        // it retruns 10, 100, 2, 20, its going in acending order, but based off the first letter/number...so it does 10 to 100, then it moves onto 2, etc. 
+
+        // more number examples
+
+        const points = [40, 100, 1, 5, 25, 10];
+        points.sort(function (a, b) { return a - b });
+        console.log(points); // in accending order, low to high
+
+        points.sort(function (a, b) { return b - a });
+        console.log(points); // in decending order, high to low
+
+        // so numbers, pretty basic, with strings, since the default sort() goes in accending order, instead of using the whole a/b shit, its just easier to do with the reverse by chainging the reverse method in mix
+
+        const countries = ["Russia", "Azerbijzan", "Japan", "South Africa", "France", "Spain"]
+        console.log(countries.sort());
+        console.log(countries.sort().reverse());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
