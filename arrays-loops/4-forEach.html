@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Each method</title>
+</head>
+
+<body>
+    <script>
+        // The forEach() method will loop over an array by executing a provided callback function for each element in the array
+
+        let text = "";
+        const fastFood = ["Mcdonalds", "Burger King", "Wendys"];
+        fastFood.forEach(addNums);
+
+        function addNums(item, index) {
+            text += index + ": " + item + "<br>";
+        }
+
+        console.log(fastFood);
+        console.log(text);
+
+
+        // another example
+
+        let sum = 0;
+        const numbers = [65, 44, 12, 4];
+        numbers.forEach(sumFunc);
+
+        function sumFunc(item) {
+            sum += item;
+        }
+
+        console.log(sum);
+
+        // A 3rd example using that same numbers array
+
+        numbers.forEach(multFunc)
+
+        function multFunc(item, index, arr) {
+            arr[index] = item * 10;
+        }
+        console.log(numbers);
+
+
+    </script>
+</body>
+
+</html>
