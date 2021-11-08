@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concat</title>
+</head>
+
+<body>
+    <script>
+        // The .concat() method will merge two or more arrays and return a new array without changing the existing array
+
+        const flavors1 = ["Vanilla", "Chocholate", "Strawberry"];
+        const flavors2 = ["Peanut Butter", "Oreo", "SnickerDoodle"];
+
+        const allFalvors = flavors1.concat(flavors2);
+        console.log(allFalvors); // returns a single array that is comprised of both the original arrays
+
+        // you can also combine 3 or more arrays if you wish 
+
+        const flavors3 = ["Rocky Road", "Cookie Dough", "Black Cherry"]
+        const flavors4 = ["Mudslide", "Butter Pecan", "Coconut"];
+
+        const allFalvors2 = flavors1.concat(flavors2, flavors3, flavors4);
+        console.log(allFalvors2); // Returns a single array with all 12 falavors
+
+        // You can also use .concat() in different ways
+
+        var quote = "Plus";
+
+        console.log(quote.concat(" Ultra"));
+
+        // that add the ultra to the quote, making the new quote Plus Ultra
+
+        // you can also use the concat method to give value to an empty string
+
+        var noQuote = "";
+        console.log(noQuote.concat("There is no Quote"));
+
+        // Concat only works in context of string values, so effectivly the + operator will concat by default, rendering this specific method unnessesary
+
+        console.log('There ' + "is " + "no " + "Quote")
+
+
+
+
+    </script>
+
+</body>
+
+</html>

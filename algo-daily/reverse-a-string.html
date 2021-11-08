@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo Daily 1</title>
+</head>
+
+<body>
+    <script>
+        /*
+        This first challenge is fairly simple in that we will be reverseing a string
+
+        Can you write a function that reverses an inputted string without using the built in Array # reverse method?
+
+        reverseString("jake") should return "ekaj"
+
+        Rule 1 - Cannot use the built in reverse method
+        Rule 2 - Ideal solution woul run in O(n) time complexity and O(1) space complexity 
+    
+        */
+
+
+        function reverseString(str) {
+            let stringArray = str.split(""); // creating a variable and setting to the passed in string, but with the split method to split it apart
+            let start = 0; // variable for the start set to 0
+            let end = str.length - 1; // variable for the end, set to the length of the inputed string -1
+
+            while (start <= end) { // while the start is less then ot equal to the end 
+                const temp = stringArray[start]; // variable of temp set to the stringArrays's start
+                stringArray[start] = stringArray[end]; // making the start eqaul to the end 
+                stringArray[end] = temp; // setting the end equal to the temp which was the start
+                start++; // increment start by 1
+                end--; // decrement end by 1
+            }
+
+            return stringArray.join("");// return that split and reversed string, but joined together. 
+        }
+
+        console.log(reverseString("Samantha"));
+    </script>
+
+</body>
+
+</html>
