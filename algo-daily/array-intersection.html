@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Intersection</title>
+</head>
+
+<body>
+    <script>
+        /*
+        So this challenge is to write a function that takes in two arrays as inputs and return to us their intersecton. 
+
+        We can call the method "intersection" - the definition of an intersection of two sets (a and b) is the set containing all elements of A that also belong to B\
+
+        so if A is an array of ["green", "orange", "blue", "red"] and B is an array of ["black", "green", "red", "purple"]
+
+        The intersection of A & B would be ['green', 'red']
+        
+        Note - all elements in the final result should be unique
+
+        const nums1 = [1, 2, 2, 1];
+        const nums2 = [2, 2];
+
+        intersection(nums1, nums2) = [2]
+
+        expected time complexity shoyld be O(n+m) where n and m are the lengths of the array
+        expected space complexity shoyld be O(max(n,m))
+        
+        */
+
+        function intersection(nums1, nums2) {
+            // making a new set based off the nums1 array - sets are an object type that allow you to store unique values - Sets cannot have duplicates, making them ideal for this problem 
+            const set = new Set(nums1); // transform the 1st array into a set
+            const filteredSet = new Set(nums2.filter((n) => set.has(n))); // then we take the 2nd array and filter it by the elements that appear in the 1st set, and this in itself is wrapped in another set
+            return [...filteredSet]; // then we transform it back into an array using the spread operator 
+        }
+
+        console.log(intersection([1, 2, 2, 1], [2, 2]));
+
+
+        // now this is the ideal solution. There is another solution where you could use 2 loops to interate over the first array and compare to the 2nd array, but a O(n^2) you always want to avoid
+        // the ideal way to handle this problm is to trun the arrays in sets. 
+    </script>
+
+</body>
+
+</html>
