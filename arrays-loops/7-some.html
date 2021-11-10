@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Some Method </title>
+</head>
+
+<body>
+
+    <h2>JavaScript .some() Array Method</h2>
+    <p>Click the button to test if any array elements has a higher value than the input</p>
+    <p>Input: <input type="number" id="toCheck" value="15"></p>
+    <button onclick="myFunction()"> Test</button>
+    <p>Values Higher: <span id="demo"></span></p>
+
+
+
+
+
+    <script>
+        /*
+        The .some() method check it at least one element in the array passes the condition and returns true or false
+
+        .some() check is any elements pass a test (provided as a function)
+
+        .some() executes the functon once for each array element 
+            - if it returns true, or returns false, it returns that and stops
+
+        .some() does not execute the function for empty array elements
+
+        .some() does not change the original array 
+        */
+
+
+        // 1st example
+
+        const ages = [3, 10, 18, 20];
+
+        ages.some(checkAdult);
+
+        function checkAdult(age) {
+            return age > 18;
+        }
+
+        console.log(ages.some(checkAdult))
+
+        // 2nd example, this is the javascript code to make the html example work
+
+
+        const numbers = [4, 12, 16, 20];
+
+        function checkValue(x) {
+            return x > document.getElementById("toCheck").value;
+        }
+
+        function myFunction() {
+            document.getElementById("demo").innerHTML = numbers.some(checkValue);
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>

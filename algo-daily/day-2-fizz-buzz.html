@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fizz buzz challenge</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        For this challenge we are given a number in the form of an integer n
+
+        Write a function that returns the string representation of all numbers from 1 to n based on the following rules
+        1. If its a multiple of 3, represent it as "fizz"
+        2. If its a multiple of 5, represent it as "buzz"
+        3. If its a multiple of both 3 and 5, represetn it as fizzbuzz
+        4. If its neither, just return the number itself
+        */
+
+        function fizzBuzz(n) {
+            let finalArray = [];
+
+            for (let i = 1; i <= n; i++) {
+                if (i % 3 === 0 && i % 5 === 0) {
+                    finalArray.push("fizzbuzz");
+                } else if (i % 3 === 0) {
+                    finalArray.push("fizz");
+                } else if (i % 5 === 0) {
+                    finalArray.push("buzz");
+                } else {
+                    finalArray.push(i.toString());
+                }
+            }
+            return finalArr.join("");
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
