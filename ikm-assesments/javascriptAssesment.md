@@ -37,4 +37,61 @@ ________________________________________________________________________________
 - The help identify which items have changed and are added/removed. This helps to ensure that the React.js Component UI maintians stability. 
 ___________________________________________________________________________________________________________________________
 
+4. Which of the following assertion test errors are thrown asynchronously while executing a function in Node.js?
+
+- assert.fail
+- assert.ifError
+- assert.catch
+- assert.throws
+- assert.error
+___________________________________________________________________________________________________________________________
+
+5. Which of the following are valid API endpoints in the Node.js net module
+
+- net.connect()
+- net.Socket.drain()
+- net.dissconnect()
+- net.Server.close()
+- net.restart()
+
+___________________________________________________________________________________________________________________________
+
+6. Based on the HTML5 form code below, which of the following statements are correct
+
+<form method="post" action="path or location of server-side script">
+    <h2>Adding Age to a Form</h2>
+    <fieldset>
+        <label> Age:
+        <input type="number" min="18" max="100" step="1" value="21" onchange="showValue(this.value)">
+        </label>
+         <label> Age:
+        <input type="range" min="0" max="100" step="1" value="21">
+        </label>
+        <span id="agedisplay"></span>
+        <script>
+            function showValue(newValue) {
+                document.getElementById('agedisplay').innerHTML = newValue;
+            }
+        </script>
+    </fieldset>
+</form>
+
+
+- Step is not an attribute used in HTML5
+- The type="number" is a value used in HTML5 which adds arrows near a text box
+- The Min and Max attributed are not attributes used in HTML5
+- The JavaScript is being used to add numbers to the range slider
+- The type="range" is a value used in HTML5 which adds a slider
+___________________________________________________________________________________________________________________________
+
+7. After being created using net.createConnection(), a TCP client in Node.js emits which of the following events when being connected to the server
+
+- connected
+- new
+- connect
+- data
+- established
+
+_______________________________________________________________________________________________________________________
+
 ___________________________________________________________________________________________________________________________
