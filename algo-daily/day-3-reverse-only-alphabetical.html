@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Only Alphabetical</title>
+</head>
+
+<body>
+    <script>
+        /*
+        You are given a string that contains alphabetical characters (a - z, A - Z) and other characters ($, !, etc)
+
+        for example, one input may be 'sea!$shells3'
+
+        The challange is, can you reverse the alphabetical ones? 
+
+        expected time and space complexities are O(n)
+
+        https://algodaily.com/challenges/reverse-only-alphabetical
+
+        */
+
+        function reverseOnlyAlphabetical(str) {
+            const alphaChars = [];
+            str = str.split("");
+
+            for (let char of str) {
+                if (/[a-zA-Z]/.test(char)) {
+                    alphaChars.push(char);
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

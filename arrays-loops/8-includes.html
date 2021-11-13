@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>includes methods</title>
+</head>
+
+<body>
+    <script>
+        /*
+        The .includes method checks if an array includes the element that passes the condition returning true or false
+
+        here are some examples
+        
+        */
+
+        let text = "Hello world, welcome to the universe";
+
+        console.log(text.includes("world"));
+        console.log(text.includes("fannypack"));
+
+        // you can also set if a string contains a value starting at a specific index
+
+        console.log(text.includes("world", 12))
+        console.log(text.includes("world", 6))
+
+        // this method is also case sensative, so searching for "world" won't return true if you type in "World"
+    </script>
+
+</body>
+
+</html>
