@@ -15,7 +15,7 @@
 
         for example, one input may be 'sea!$shells3'
 
-        The challange is, can you reverse the alphabetical ones? 
+        The challange is, can you reverse the alphabetical ones?
 
         expected time and space complexities are O(n)
 
@@ -23,16 +23,75 @@
 
         */
 
-        function reverseOnlyAlphabetical(str) {
-            const alphaChars = [];
-            str = str.split("");
+        // First method to solve this - requires reverseing the array 
 
-            for (let char of str) {
-                if (/[a-zA-Z]/.test(char)) {
-                    alphaChars.push(char);
-                }
+        function reverseArray(arr) {
+            let start = 0; // start variable set to 0
+            let end = arr.length - 1; // end varriable equal to the arrays length -1 to position it at the last character
+
+            while (start <= end) { // while the start is less then or equal to the end
+                const temp = arr[start] // variable of temp is equal to the start of the array
+                arr[start] = arr[end]; // start of the array is now equal to the end of the array
+                arr[end] = temp; // the end of the array is eqaul to the temp (which is the start of the array)
+
+                start++; // increment start by 1
+                end--; // decrement start by 1
+            }
+            return arr;
+        }
+
+        // this code will effectivly reverse any array 
+
+        /* but for this problem we need to identify just the alphabetical characters, store them in a seperate array and reverse them. 
+
+        for (let char of str) {
+            if (/[a-zA-Z]/.test(char)) {
+                alphaChars.push(char)
             }
         }
+
+        // we can then perform a 2nd pass, starting from the begining. This time we swap out alphabetical characters in the original string with elements from our newly created reversedAlpha, based on positon/index
+
+        for (let i = 0; i < str.length; i++) {
+            if (/[a-zA-Z]/.test(str[i])) {
+                str[i] = reversedAlpha[i]
+            }
+        }
+
+        const reversedAlpha = reverseArray(alphaChars)
+*/
+
+        // there is another way to do this problem 
+
+        function isAlpha(c) {
+            return (c >= 65 && c <= 90) || (c >= 97 && c <= 122);
+        }
+
+        function swap(arr, a, b) {
+            let t = arr[a];
+            arr[a] = arr[b];
+            arr[b] = t;
+        }
+
+        function reverseOnlyAlphabetical(str) {
+            const result = str.split("");
+            let left = 0;
+            let right = result.length - 1;
+
+            while (left < right) {
+                if (!isAlpha(result[left].charCodeAt())) {
+                    left++;
+                } else if (!isAlpha(result[right].charCodeAt())) {
+                    right--;
+                } else {
+                    swap(result, left++, right--);
+                }
+            }
+            return result.join("");
+        }
+
+        console.log(reverseOnlyAlphabetical("sea!$hells3"));
+
     </script>
 
 </body>
