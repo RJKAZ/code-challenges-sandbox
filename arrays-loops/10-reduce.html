@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reduce Method</title>
+</head>
+
+<body>
+
+    <h2>JavaScript Reduce Method</h2>
+    <p>Subtractt he numbers in the array, starting from the left</p>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+    <script>
+
+        // The .reduce() method applies a functon against an accumulator and each element in the array to reduce it to a single value
+        // The .reduce() method executes a reducer function for each value on an array
+        // The .reduce() returns a single value which is the functions accumulated result
+        // The .reduce() does not execute the function for empty array elements 
+        // The .reduce() does not change the original array. 
+        // in action 
+
+        const numbers = [175, 50, 25];
+
+        document.getElementById("demo").innerHTML = numbers.reduce(myFunc);
+
+        function myFunc(total, num) {
+            return total - num;
+        }
+
+
+        //example 2
+
+        const numbers2 = [15.5, 2.3, 1.1, 4.7];
+        document.getElementById("demo2").innerHTML = numbers2.reduce(getSum, 0);
+
+        function getSum(total, num) {
+            return total + Math.round(num);
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
