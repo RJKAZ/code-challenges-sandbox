@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Method</title>
+</head>
+<body>
+
+    <h2> JavaScript Array Find Method</h2>
+    <p>The Array.find() method returns the value of the first element that passes a test (provided by a function)</p>
+    <p>Example 1</p>
+    <p id="demo"></p>
+    </br>
+    <p>Example 2</p>
+    <p>Click the button to return the value of the first element in the array that has a value above this number</p>
+    <p><input type="number" id="ageToCheck" value="18"></p>
+    <button onclick="checkAgeFunc()">Try It</button>
+    <p id="demo2"></p>
+
+    <script>
+        // The .find() method returns the value of the 1st element in an array that passes the test in a testing function 
+
+        /*
+        find() returns the value at the first element that passes a test
+        find() executes a function for each array element
+        find() returns undefined if no element is found
+        find() does not execute the function for empty array elements 
+        find() does not change the original array  
+        */
+
+        //example 1
+
+        const ages = [3, 10, 18, 200];
+
+        function checkAge(age) {
+            return age > 18;
+        }
+
+        document.getElementById('demo').innerHTML = ages.find(checkAge);
+
+
+        // example 2
+
+        const newAges = [4, 12, 16, 29];
+
+        function checkAges(age) {
+            return age > document.getElementById("ageToCheck").value;
+        }
+
+        function checkAgeFunc() {
+            document.getElementById("demo2").innerHTML = newAges.find(checkAge);
+        }
+
+    
+
+
+    </script>
+    
+</body>
+</html>

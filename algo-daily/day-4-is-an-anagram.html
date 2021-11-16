@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4, is an Anagram</title>
+</head>
+<body>
+    <script>
+        /*
+        The definition of an Anagram - A word, phrase, or name formed by rearranging the letters of another. Such as Cinema, into Iceman
+
+        So we are given two strings like "Cinema" and "Iceman" as inputs. Can you write a function that will return true or false depending on whether the string are anagrams of each other? 
+
+        To Solve this problem, first we take the strings and make them lowercase to ensure case sensativitly doesn't become an issue. 
+
+        Then we're gonna do a chain the methods of split, sort and join
+
+        We use Split to split the arrays appart into individual letters, 
+        then we use the sort method to sort them in alpabeitcal order
+        then we use the join method ot join them back togther. 
+
+        In case of anagrams, split/sort/join would make them equal values. Anything not equal wouldn't be an anagram
+
+        so we just check if a is equal to b
+        
+        
+        */
+
+        function isAnagram(str1, str2) {
+            let a = str1.toLowerCase();
+            let b = str2.toLowerCase();
+
+            a = a.split("").sort().join("");
+            b = b.split("").sort().join("");
+
+            return a === b;
+        }
+
+        console.log(isAnagram("mary", "Army"));
+    </script>
+    
+</body>
+</html>
