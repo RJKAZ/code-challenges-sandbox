@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Palindrome</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        Given a string str, can you wrtie a method that will return true if it is a palindrome, and false if it is not. 
+        Palindrone is defined as a word, phrase, or dequence that reads the same backwards as fowards. 
+
+        // as an extra challenge, try to ignore - non-alphanumerical characters 
+        
+        */
+
+
+        //let str = 'racecar';
+
+        function isPalindrome(str) {
+            let a = str;
+            console.log(a);
+            let b = str.split("").reverse().join("");
+            console.log(b);
+            if (a === b) {
+                console.log("we have an anagram");
+            } else {
+                console.log("we do not have an anagram")
+            }
+
+        }
+
+        isPalindrome('ABCDEFG');
+        isPalindrome('racecar');
+
+        // that is the simplest solution 
+
+        function isPalindrome2(str2) {
+            if (!str2 || str2 === "") {
+                return true;
+            } else {
+                let left = 0;
+                let right = str2.length - 1;
+                let leftChar;
+                let rightChar;
+
+                while (left < right) {
+                    leftChar = str2.charAt(left).toLowerCase();
+                    rightChar = str2.charAt(right).toLowerCase();
+
+                    if (isAlphaNumeric(leftChar) && isAlphaNumeric(rightChar)) {
+                        if (leftChar == rightChar) {
+                            left++;
+                            right--;
+                        } else {
+                            return false;
+                        }
+                    } else {
+                        if (!isAlphaNumeric(leftChar)) {
+                            left++;
+                        }
+                        if (!isAlphaNumeric(rightChar)) {
+                            right--;
+                        }
+                    }
+                }
+
+                return true;
+            }
+        }
+
+        function isAlphaNumeric(c) {
+            if (/[^a-zA-Z0-9]/.test(c)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        console.log(isPalindrome("A Santa Lived As a Devil At NASA"));
+    </script>
+
+</body>
+
+</html>

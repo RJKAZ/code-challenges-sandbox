@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Index</title>
+</head>
+
+<h2>.findIndex() Example 2</h2>
+
+<p>findIndex() returns the index of the first element that passes a test (provided by a function)</p>
+
+<p id="demo"></p>
+
+<body>
+    <script>
+        /*
+        .findIndex() - this method returns the index of the first element in an array that passes the test in a testing function
+
+        findIndex() executes a function for each array element 
+        findIndex() returns the index(position) of the first element that passes a test
+        findIndex() returns -1 if no match is found
+        findIndex() does not execute the function for empty array elements 
+        findIndex() does not change the original array 
+
+        lets run thru some examples
+        */
+
+        const ages = [3, 10, 18, 20];
+
+        console.log(ages.findIndex(checkAge));
+
+        function checkAge(age) {
+            return age > 18;
+        }
+
+
+        const powerLevels = [300, 2000, 5000, 1000000];
+
+        document.getElementById("demo").innerHTML = powerLevels.findIndex(findPower);
+
+        function findPower(power) {
+            return power > 4000;
+        }
+    </script>
+</body>
+
+</html>
