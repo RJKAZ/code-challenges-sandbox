@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majority Element</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Suppose we are given an array of numbers like the following
+
+        [4, 2, 4]
+
+        Could you find the majority elemenet? A Majority is defined as "the greater part" or more then half of the total. it is a subset of a set consisting of more then half of the sets elements
+
+        Lets assume that the array length is always at least one. and there's always a majority element 
+
+        In that above example, the majority element would be 4 
+
+        and just to clarify, the majority element is not the number with the most occurances, but rather its number value with >= 50% of occurances
+        
+        */
+
+        // function majorityElement(nums) {
+        //    var sortedNums = nums.sort();
+        //    return sortedNums[Math.floor(nums.length / 2)];
+        // }
+
+        // console.log(majorityElement([1, 1, 1, 4, 2, 4, 4, 3, 1, 1]));
+
+        // there is another solution 
+
+        function majorityElement(nums) {
+            const hash = {};
+            let max = 0,
+                val;
+            for (let i = 0; i < nums.length; i++) {
+                if (hash[nums[i]]) {
+                    hash[nums[i]]++;
+                } else {
+                    hash[nums[i]] = 1;
+                }
+                if (hash[nums[i]] > max) {
+                    max = hash[nums[i]];
+                    val = nums[i];
+                }
+            }
+            return val
+        }
+
+        console.log(majorityElement([1, 1, 1, 4, 2, 4, 4, 3, 1, 1]));
+    </script>
+</body>
+
+</html>

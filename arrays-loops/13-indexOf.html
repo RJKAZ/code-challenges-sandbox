@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index of Method </title>
+</head>
+
+<body>
+
+    <p>Find Welcome</p>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+
+
+
+    <script>
+        /*
+        the .indexOf() method returns the index of the first occurance of the specified element in the array or -1 if it is not found
+
+        indexOf() returns the position of the first occurance of a specified value in a string
+        indexOf() returns -1 if the value is not found
+        indexOf() is case sensative
+        */
+
+
+        //example 1
+
+        let text = "Hello Earth, Welcome to the Skrull Empire!";
+        //let result = text.indexOf("Earth");
+        let result = text.indexOf("Hello");
+        //let result = text.indexOf("Asgard");
+
+        document.getElementById("demo").innerHTML = result;
+
+
+        //example 2 - find the first occurance of "e"
+
+        let newText = "Hello World, welcome to Hell!";
+
+
+        document.getElementById("demo2").innerHTML = text.indexOf("to");
+    </script>
+
+</body>
+
+</html>
