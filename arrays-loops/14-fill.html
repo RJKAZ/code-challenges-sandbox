@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill Method</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        the .fill() method fills the elelements in an array with a static value and returns the modified array 
+
+        the .fill() method fills specified elements in an array with a value
+        the .fill() method overwrites the original array 
+
+        start and end positions can be specified, if not elements will be filled
+        */
+
+        const fruits = ["bannana", "orange", "Apple", "Mango"];
+        console.log(fruits.fill("Kiwi"));
+        //by using a number after the static value, you can set just where the fill occurs
+        console.log(fruits.fill("Grape", 1));
+        console.log(fruits.fill("Pear", 2));
+        console.log(fruits.fill("Dragonfruit", 3));
+
+        const vegetables = ["Brocile", "Califlour", "Brussel Sprouts", "Edamummy."]
+        console.log(vegetables.fill("Yams", 3))
+
+        // an example of ending the positions
+
+        const marvelMovies = ["Ironman", "Thor", "Captain America", "Captain Marvel", "Avengers", "Infinity War"]
+        console.log(marvelMovies.fill("Black Panther", 3, 5));
+
+        // so Black Panther is filled into the array stating at the 3rd index, and ending at 5, meaning it only fills for the 3rd and 4th index. 
+
+    </script>
+
+</body>
+
+</html>

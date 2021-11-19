@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power of 3</title>
+
+</head>
+
+<body>
+    <script>
+        /*
+        Given an integer num, write a method to determine if it is a power of 3
+
+        the method will be called as follows
+
+        console.log(powerOfThree(9));
+        // true
+        console.log(powerOfThree(7));
+        // false
+
+        expected space complexity O(logn)
+        expected time complexity O(1)
+        
+        
+        */
+
+        function powerOfThree(num) {
+            let currentNumber = num;  // making a variable equal to the num input
+            if (currentNumber === 1) { // if that number is equal to 1, 
+                return true;               // return true
+            }
+            while (currentNumber > 0) { // while that num is greater then 0
+                currentNumber = currentNumber / 3; // revalue the current number to the current number divided by 3
+                if (currentNumber === 1) { // if the current number is equal to 1, 
+                    return true;          // return true
+                }
+            }
+            return false;   // otherwise return false 
+        }
+
+        console.log(powerOfThree(9));
+        console.log(powerOfThree(7));
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
