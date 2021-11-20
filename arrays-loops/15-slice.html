@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slice Method</title>
+</head>
+
+<body>
+
+    <h2>Behold the Slice method</h2>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+
+    <script>
+        /*
+        the .slice() method returns a new arry with specificed start and end elements 
+
+        .slice() returns selected elements in an array as an new array
+        .slice() selects from a given start, up to a (not inclusive) given end
+        .slice() does not change the original array 
+        
+        the first element would be at index 0, so with 5 items in the array, you would target indexs 0-4
+
+        but if you use negative number it would select from the end of the array 
+        
+        */
+
+        const coffee = ["Pumpkin Spice", "Sugar Cookie", "Creme Brule", "Gingerbread", "Butter Cream"]
+
+        const myFav1 = coffee.slice(0, 1);
+        const myFav2 = coffee.slice(-4, -1);
+        const myFav3 = coffee.slice(2, 3);
+
+        document.getElementById("demo").innerHTML = myFav1;
+        document.getElementById("demo2").innerHTML = myFav2;
+        document.getElementById("demo3").innerHTML = myFav3;
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
