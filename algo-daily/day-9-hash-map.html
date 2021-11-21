@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9 Implement a Hash map</title>
+</head>
+
+<body>
+    <script>
+        // holy crap, this one is way confusing 
+
+
+        class Hashmap {
+            constructor() {
+                this._storage = [];
+            }
+            hashStr(str) {
+                let finalHash = 0;
+                for (let i = 0; i < str.length; i++) {
+                    const charCode = str.charCodeAt(i);
+                    finalHash += charCode;
+                }
+                return finalHash;
+            }
+
+            set(key, val) {
+                let idx = this.hashStr(key);
+
+                if (!this._storage[idx]) {
+                    this.storage[idx] = [];
+                }
+
+                this._storage[idx].push([key, val]);
+            }
+
+            get(key) {
+                let idx = this.hashStr(key);
+
+                if (!this.storage[idx]) {
+                    return undefined;
+                }
+
+                for (let keyVal of this._storage[idx]) {
+                    if (keyVal[0] === key) {
+                        return keyVal[1];
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
