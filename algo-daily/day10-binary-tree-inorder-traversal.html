@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Can you write a function to traverse a binary tree in-order, and print out the values of each node as it passes? 
+
+        yeah...this is the solution, but this is beyond my capactiy to understand.
+        */
+
+        function inorderTraversal(root) {
+            let res = [];
+            helper(root, res);
+            return res;
+        }
+
+        function helper(root, res) {
+            if (root) {
+                if (root.left) {
+                    helper(root.left, res);
+                }
+                res.push(root.val);
+
+                if (root.right) {
+                    helper(root.right, res);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
