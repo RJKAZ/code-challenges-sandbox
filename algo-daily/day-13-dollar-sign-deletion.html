@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dollar Sign Deletion</title>
+</head>
+<body>
+    <script>
+        /*
+        You are given a array of strings containing alphabetical characters and certain symbol characrers. A $ represetns a DELETE action whereby the character before it is deleted
+        Each of these strings will be run through a method to operate on the $ DELETE action. We want to find out if the final string is the same for all of them. 
+        */
+
+        function getFinalStr(str) {
+            const stack = [];
+            for (let char of str) {
+                if (char === "$") {
+                    stack.pop();
+                    continue;
+                }
+                stack.push(char);
+            }
+            return stack.join("");
+        }
+
+        function isDollarDeleteEqual(arr) {
+            let prev;
+            for (let current of arr) {
+                current = getFinalStr(current);
+                if (prev !== undefined && current !== prev) {
+                    return false;
+                }
+                prev = current;
+            }
+            return true; 
+         }
+    </script>
+    
+</body>
+</html>
