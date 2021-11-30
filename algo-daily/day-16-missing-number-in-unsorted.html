@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missing Number in Unsorted</title>
+</head>
+<body>
+    <script>
+        /*
+        Assume we are givne an unsorted array of numbers like this
+        [2, 5, 1, 4, 9, 6, 3, 7]
+
+        We are told that when this array is sorted, there is a series of n consecutive numbers. You are givne a lower bound and an upperbound for this sequence. 
+
+        There is one consecutive number missing and we need to find it. 
+
+        As an example, look at the below example. We're told that the lower bound is 1 and the upper bound is 9, the numbers that missing in the unsorted series bounded by these two numbers is 8
+
+        const arr = [2,5,1, 4, 9, 6, 3, 7];
+
+        const lowerBound = 1;
+        const upperBound = 9;
+
+        missingInUnsorted(arr, lowerBound, upperBound); returns 9
+
+        Heres the challenge, can you find the missing number in O(n) time? And can you do it without sorting. 
+        
+        */
+
+        function findMissingNumbers(arr) {
+            // create sparse array with a 1 at each index equal to the value in the input
+            var sparse = arr.reduce((sparse, i) => (sparse[i]=1, sparse), []);
+            // create array 0..highest number, and retain only those values for which the sparse array has nothing at that index (and eliminate the 0 value)
+            return [...sparse.keys()].filter(i => i && !sparse[i]);
+        }
+
+        var someArr = [2, 5, 3, 1, 4 , 7, 10, 15]
+        var result = findMissingNumbers(someArr);
+        console.log(result);
+    </script>
+    
+</body>
+</html>
