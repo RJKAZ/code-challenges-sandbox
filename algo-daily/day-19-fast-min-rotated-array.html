@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Minimum in Rotated Array</title>
+</head>
+<body>
+    <script>
+        /*
+        We're given an array of integers that looks like the following
+        [0,1,2,3,4,5,6,7,8]
+        Lets imagine we're an assembly line as we decided to shift some workers around. 
+        Say we take our array, and rotate it at a random pivot so that the section after the pivot comes before.
+        Lets put the pivot between 5 and 6
+
+        [6,7,8,0,1,2,3,4,5]
+
+        can you find the smallest element in O(log n) time? Assume that there are no repeat numbers
+        so with 
+        [4,5,1,2,3] we get 1
+        
+        */
+
+        function getMinimim(numbers) {
+            let left = 0;
+            let right = numbers.length -1;
+            while (left < right) {
+                if (numbers[left] < numbers[right]) {
+                    return numbers[left];
+                }
+                let midpoint = Math.floor((left + right) / 2);
+
+                if (numbers[midpoint] >= numbers[left]) {
+                    left = midpoint + 1;
+                } else {
+                    right = midpoint;
+                }
+
+            }
+            return numbers[left];
+
+
+        }
+
+        console.log(getMinimim([6,7,8,1,2,3,4,5]))
+    </script>
+    
+</body>
+</html>
