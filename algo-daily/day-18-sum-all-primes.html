@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum All Primes</title>
+</head>
+<body>
+    <script>
+        /*
+        You are given a number n. Can you write a method sumOfAllPrimes that finds all prime numbers smaller than or equal to n, and returns a sum of them. 
+
+        So we are given the number 15. All prime numbers smaller than 15 are
+        2,3, 5, 7, 11, 13
+
+        they sum up to 41, so sumOfAllPrimes(15) would return 41
+        
+        
+        */
+
+        function sumOfAllPrimes(num) {
+            var sum = 0;
+
+            function checkPrime(i) {
+                for (var k = 2; k <  i; k++) {
+                    if (i % k === 0){
+                        return false;
+                    }
+                }
+                return true;
+            }
+            for (var i = 2; i <= num; i++) {
+                if (checkPrime(i)) {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
+
+        console.log(sumOfAllPrimes(15));
+    </script>
+</body>
+</html>
