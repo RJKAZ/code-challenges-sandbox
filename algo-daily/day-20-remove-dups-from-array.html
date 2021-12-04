@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Duplicated from Array</title>
+</head>
+<body>
+    <script>
+        /*
+        Given an array, return another array with just the ordered unique elements from the given array, in other words, you remove the duplicates
+
+        */
+
+        let chars = ['A', 'B', 'A', 'C', 'B'];
+
+        let uniqueChars = [];
+        chars.forEach((c) => {
+            if (!uniqueChars.includes(c)) {
+                uniqueChars.push(c);
+            }
+        });
+
+        console.log(uniqueChars);
+    </script>
+    
+</body>
+</html>
