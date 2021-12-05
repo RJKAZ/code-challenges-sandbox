@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contiguous Subarray Sum</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        A subarray is a contiguous subset of the array. For example a subset of [1,2,3,4,5,6] could be [1,2,3], or [3,4,5] or [2,3,4]
+
+        So the challenge, given an array of numbers, return true if there is a subarray that sums up to a certain number n
+        
+        */
+
+        function subarraySum(nums, n) {
+            let sumsMap = { 0: 1 };
+            let sum = 0;
+            for (let num of nums) {
+                sum += num;
+                if (sumsMap[sum - n]) {
+                    return true;
+                }
+                sumsMap[sum] = true;
+            }
+            return false;
+        }
+
+        const arr = [1, 2, 3]
+        sum = 5;
+        console.log(subarraySum(arr, sum));
+    </script>
+
+</body>
+
+</html>
