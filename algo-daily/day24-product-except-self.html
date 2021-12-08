@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Except Self</title>
+</head>
+
+<body>
+    <script>
+        /*
+        If we are given an array of integers, can you return an output array such that each corresponding input's elements return the products of the input array except itself? 
+
+        So lets take an array of [1, 2, 4, 16]
+
+        We want to return [128, 64, 32, 8]
+
+        2 x 4 x 16 = 128
+        1 x 4 x 16 = 64
+        1 x 2 x 16 = 32
+        1 x 2 x 4 = 8
+
+        can you solve this without division?
+
+
+
+        */
+
+
+        function productOfArrayExceptSelf(array) {
+            var resultArray = [], product;
+            for (var i = 0; i < array.length; i++) {
+                product = 1;
+                for (var j = 0; j < array.length; j++) {
+                    if (i !== j) product *= array[j];
+                }
+                resultArray.push(product);
+            }
+            return resultArray;
+        }
+
+        // Sample data
+        var array = [1, 2, 4, 16];
+        console.log(productOfArrayExceptSelf(array));
+
+    </script>
+
+</body>
+
+</html>
