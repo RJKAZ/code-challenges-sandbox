@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 26 Find the Intersection of Two Linked Lists</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Can you write a method getIntersection(list1, list2) to find the intersection of two linked lists
+        
+        */
+
+        var getIntersectionNode = function (headA, headB) {
+            let a = headA, b = headB
+            while (a !== b) {
+                a = !a ? headB : a.next
+                b = !b ? headA : b.next
+            }
+            return a
+        }
+    </script>
+
+</body>
+
+</html>
