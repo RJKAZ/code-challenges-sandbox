@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice with methods</title>
+</head>
+
+<body>
+    <script>
+
+        // Step 1 - practice with the Map Method 
+
+        let m1GpuCores = [7, 8, 16, 24, 32];
+        console.log(m1GpuCores)
+
+        // so that is an array of the GPU cores in the current M1 Macbooks from Air to Pro 
+        // So with the next generation, Apple will double all the gpu cores, so using the Map Method I will beef up the array to match the next gen
+
+        let m2GpuCores = m1GpuCores.map((element) => element * 2);
+        console.log(m2GpuCores);
+
+        // Step 2  - Practice with the filter methods
+
+        // so with the new M2 GPU cores, I want to filter out everything that has under 32 gpu cores since that would be insufficent for video editing
+
+        // so first I create a function to check if the cores is greater or equal to 32
+
+        function checkCores(cores) {
+            return cores >= 32;
+        }
+
+        const topLineCores = m2GpuCores.filter(checkCores);
+        console.log(topLineCores);
+
+        // and this returns only the cores at 32 or greater
+
+        // Step 3 - lets play with the sort method
+
+        let decendedOrderCores = m2GpuCores.sort((a, b) => a > b ? -1 : 1);
+        console.log(decendedOrderCores)
+
+        let accendOrderCores = m2GpuCores.sort((a, b) => a > b ? 1 : -1);
+        console.log(accendOrderCores)
+
+        // this just simply sorts the M2 cores in either accending or decending order
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
