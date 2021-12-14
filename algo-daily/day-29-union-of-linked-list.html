@@ -46,6 +46,79 @@
         // let m, n be the lengths of the two lists
         // expected time complextiy - O(n*m)
         // expected space complexity - O(n+m)
+
+        class Node {
+            constructor(item) {
+                this.data = item;
+                this.next = null;
+            }
+        }
+
+        let head1, head2;
+        function getNode() {
+            let c1 = getCount(head1);
+            let c2 = getCount(head2);
+
+            let d;
+
+            if (c1 > c2) {
+                d = c1 - c2;
+                return _getIntesectionNode(d, head1, head2);
+            }
+            else {
+                d = c2 - c1;
+                return _getIntesectionNode(d, head2, head1);
+            }
+        }
+
+        class Node {
+            constructor(item) {
+                this.data = item;
+                this.next = null;
+            }
+        }
+
+        let head1, head2;
+        function getNode() {
+            let c1 = getCount(head1);
+            let c2 = getCount(head2);
+
+            let d;
+
+            if (c1 > c2) {
+                d = c1 - c2;
+                return _getIntesectionNode(d, head1, head2);
+            }
+            else {
+                d = c2 - c1;
+                return _getIntesectionNode(d, head2, head1);
+            }
+        }
+        function getCount(node) {
+            let current = node;
+            let count = 0;
+
+            while (current != null) {
+                count++;
+                current = current.next;
+            }
+
+            return count;
+        }
+
+        head1 = new Node(3);
+        head1.next = new Node(6);
+        head1.next.next = new Node(9);
+        head1.next.next.next = new Node(15);
+        head1.next.next.next.next = new Node(30);
+
+        // creating second linked list
+        head2 = new Node(10);
+        head2.next = new Node(15);
+        head2.next.next = new Node(30);
+
+        document.write("The node of intersection is " + getNode());
+
     </script>
 
 </body>
