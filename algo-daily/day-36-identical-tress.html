@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identical Trees</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Can you write a function to see if two binary trees are identical 
+
+       Each corresponding node at every position has the exact same value so they are identical. If one tree has a missing child node, they are not identical
+
+
+        */
+
+        // this is the definition of the tree
+
+        function TreeNode(val) {
+            this.val = val;
+            this.left = this.right = null;
+        }
+
+        var isSameTree = function(p, q) {
+            if (p === null && q === null) return true;
+            if (p === null || q === null) return false;
+            return (p.val == q.val) && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+        }
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
