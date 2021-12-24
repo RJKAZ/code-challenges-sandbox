@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 37 Max Per Level</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Given a binary tree, write a method to return an array containing the largest (by value) node values at each level. In other words, we're looking for the max per level
+      
+        We'll use the standard tree node definition
+
+
+        */
+
+        function Node(val) {
+
+            this.val = val;
+
+            this.left = this.right = null;
+
+        }
+
+        var largestValues = function (root) {
+            if (!root) return []
+            const output = []
+            let queue = []
+            queue.push(root)
+            while (queue.length) {
+                const len = queue.length
+                // Keep track of the max per level
+                let max = -Infinity
+                for (let i = 0; i < len; i++) {
+                    const cur = queue.shift()
+                    max = Math.max(max, cur.val)
+                    if (cur.left) queue.push(cur.left)
+                    if (cur.right) queue.push(cur.right)
+                }
+                // Add the max to the output array
+                output.push(max)
+            }
+            return output
+        };
+    </script>
+</body>
+
+</html>
