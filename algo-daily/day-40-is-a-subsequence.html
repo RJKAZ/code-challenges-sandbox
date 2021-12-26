@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is a Subsequence</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Given two strings, one named sub, and the other str, determin is sub is a subsequence of str
+
+        const str = "barbell"
+        const sub = "bell"
+        isASubsequence(sub, str);
+        // this would return true
+
+        so what is a subsequence? You can think of it as a substring, but the letters don't have to be adjacent. 
+        It is formed by the base string by deleting some of none of the characters without affecting positions of the other letters. So this allso works
+
+        const str = "chicken"
+        const sub = "hen"
+        isASubsequence(sub, str);
+        // this would also return true
+        
+        */
+
+        const sub = "ace";
+        const str = "abcde";
+
+        const isASubsequence = (sub, str) => {
+            let i = 0;
+            let j = 0;
+            while (i < sub.length) {
+                if (j === str.length) {
+                    return false;
+                }
+                if (sub[i] === str[j]) {
+                    i++;
+                }
+                j++;
+            };
+            return true;
+        };
+
+        console.log(isASubsequence(sub, str));
+
+
+    </script>
+
+</body>
+
+</html>
