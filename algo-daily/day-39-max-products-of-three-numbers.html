@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Product of Three Numbers</title>
+
+</head>
+
+<body>
+    <script>
+        /*
+        Given an unsorted array of integers, can you write a method to find the largest product from three of the numbers?
+
+        for example an array of [-1, 9, 22, 3, -15, -7]
+
+        the largest product of three numbers is 2310. This results from -15 * -7 * 22
+        
+        */
+
+        const arr = [-10, 7, 29, 30, 5, -10, -70];
+        const threeProduct = (arr = []) => {
+            const sorter = (a, b) => a - b;
+            arr.sort(sorter);
+            let pro1 = 1, pro2 = 1;
+            let len = arr.length - 1;
+            for (let i = len; i > len - 3; i--) {
+                pro1 = pro1 * arr[i];
+            };
+            pro2 = arr[0] * arr[1] * arr[len];
+            return Math.max(pro1, pro2);
+        }
+        console.log(threeProduct(arr));
+    </script>
+
+</body>
+
+</html>
