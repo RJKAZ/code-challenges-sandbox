@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find the shortest possiable Palindrome</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Take into consideration this string
+        const str = "bubble";
+
+        find a way to convert it to a palindrome by inserting characters in front of it. Recall that a palindrome id defined as 'a word, phrase, or sequence that reads the same backward as forward'
+
+        Whats the shortest palindrome that can be returned
+        
+        
+        */
+
+        var shortestPalindrome = function (s) {
+            let i = 0;
+            let j = s.length - 1;
+            let end = s.length - 1;
+            while (i < j) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    i++;
+                    j--;
+                } else {
+                    i = 0;
+                    end--;
+                    j = end;
+                }
+            }
+            return [...s.substring(end + 1)].reverse().join('') + s;
+        }
+    </script>
+</body>
+
+</html>

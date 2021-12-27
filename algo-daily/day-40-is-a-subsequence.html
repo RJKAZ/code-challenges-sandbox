@@ -31,19 +31,19 @@
         const sub = "ace";
         const str = "abcde";
 
-        const isASubsequence = (sub, str) => {
-            let i = 0;
-            let j = 0;
-            while (i < sub.length) {
-                if (j === str.length) {
-                    return false;
+        const isASubsequence = (sub, str) => { // creating a variable for the function (that will be arrow) that takes in two sub variables 
+            let i = 0; // making a variable for i that is set to 0 but will be changed
+            let j = 0; // making a variable for j that is set to 0 but will be changed
+            while (i < sub.length) { // while loop, while the i is less then the length of the sub variable
+                if (j === str.length) { // if the j is equal the str variable
+                    return false; // return false
                 }
-                if (sub[i] === str[j]) {
-                    i++;
+                if (sub[i] === str[j]) { // if sub of i is equal to str of j
+                    i++; //increment the i
                 }
-                j++;
+                j++; // otherwise increment the j
             };
-            return true;
+            return true; // return true
         };
 
         console.log(isASubsequence(sub, str));
