@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorted Two Sum</title>
+</head>
+
+<body>
+    <script>
+        /*
+        This setup is the same as two sum, you're given an array of numbers, and a "goal number
+        
+        Write a method to return an array of the indexes of the two elements in the array that sum up to the goal. If there are no such elements, return and empty array
+
+        The main difference here is the numbers are guaranteed to be sorted. 
+        
+        */
+        var twoSum = function (numbers, target) {
+            var sum = 0;
+            var left = 0;
+            var right = numbers.length - 1;
+            while (left < right) {
+                sum = numbers[left] + numbers[right];
+                if (sum === target) {
+                    return [left + 1, right + 1];
+                } else if (sum > target) {
+                    right--;
+                } else {
+                    left++;
+                }
+            }
+        };
+
+    </script>
+
+</body>
+
+</html>
