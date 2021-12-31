@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Leap</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Given an array of non-negative integers nums, you are initially positioned at the first index of the array.
+
+        Each element in the array represents your maximum jump length at that position.
+
+        Your Goal is to reach the last index in the minimum number of jumps 
+
+        You can assume you will always reach the last index
+
+        time complexity: O(n)
+        space complexity: O(1)
+        
+        */
+
+        var jump = function (nums) {
+            let newMax = 0;
+            let jump = 0;
+            let oldMax = 0;
+            for (let i = 0; i < nums.length - 1; i++) {
+                //keep track of the farthest jump
+                newMax = Math.max(newMax, i + nums[i]);
+                // When we get to the index where we had our previous farthest jump, we increase our jump count by 1
+                if (i == oldMax) {
+                    jump++;
+                    oldMax = newMax;
+                }
+            }
+            return jump;
+
+        }
+    </script>
+
+</body>
+
+</html>
