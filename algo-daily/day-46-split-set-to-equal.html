@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Set to Equal Subsets</title>
+</head>
+
+<body>
+    <script>
+        /*
+        We're givne a set in the form of an array with a unique integer. Can you write a function that tells us whether it can be sepereated into two subsets whose elements have equal sums.
+
+        */
+
+        arrayLength = 2;
+        tolerance = 10;
+
+        // Initialize the two sums.
+        firstSum = [];
+        secondSum = [];
+        for (j = 0; j < arrayLength; j++) {
+            firstSum[j] = 0;
+            secondSum[j] = 0;
+            for (i = 0; i < arrays.length; i++) {
+                secondSum += arrays[i][j];
+            }
+        }
+
+        // Try splitting at every place in "arrays".
+        // Try to get the sums as close as possible.
+        for (i = 0; i < arrays.length; i++) {
+            goodEnough = true;
+            for (j = 0; j < arrayLength; j++) {
+                if (Math.abs(firstSum[j] - secondSum[j]) > tolerance)
+                    goodEnough = false;
+            }
+
+            if (goodEnough) {
+                alert("split before index " + i);
+                break;
+            }
+
+            // Update the sums for the new position.
+            for (j = 0; j < arrayLength; j++) {
+                firstSum[j] += arrays[i][j];
+                secondSum[j] -= arrays[i][j];
+            }
+        }
+    </script>
+
+</body>
+
+</html>
