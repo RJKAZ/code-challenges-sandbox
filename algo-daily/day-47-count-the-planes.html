@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count the Planes</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Lets say we want to write an algorithm to count all the planes in the sky
+
+        The data that we have on planes currently in the air comes in the form of a grid, modeled by a matrix array. See below:
+
+SNIPPET
+[
+
+  ['.', '.', '.', 'P'],
+
+  ['.', '.', '.', 'P'],
+
+  ['P', 'P', '.', 'P'],
+
+  ['.', '.', '.', 'P']
+
+]
+Within that matrix, the dots (.s) represent available airspace. The Ps that are neighboring each other model one plane each. So in the above example, there are exactly 2 planes.
+
+Given a multi-dimensional array of .s and Ps exclusively, can you find the number of planes that there are in the sky? Planes may only be placed horizontally or vertically. A diagonal plane like this would not count as one plane. Instead, there will be 3 separate planes.
+
+SNIPPET
+[
+
+  ['.', '.', 'P'],
+
+  ['.', 'P', '.'],
+
+  ['P', '.', '.']
+
+]
+Could you accomplish this in one pass?
+
+JS
+const sky = [
+
+  ['.', '.', '.', 'P'],
+
+  ['.', '.', '.', 'P'],
+
+  ['P', 'P', '.', 'P'],
+
+  ['.', '.', '.', 'P']
+
+]
+
+
+
+numOfPlanes(sky);
+
+// 2
+
+        */
+    </script>
+
+</body>
+
+</html>
