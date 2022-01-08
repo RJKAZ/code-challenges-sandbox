@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeros to the end</title>
+</head>
+<body>
+    <script>
+        /*
+        Write a method that moves all zeros in an array to its end. You shoyld maintian the order of all other elements. 
+
+
+        
+        */
+
+        var moveZeros = function(nums) {
+            let count = 0;
+            for (let i = 0; i < nums.length; i++) {
+                if(nums[i] !== 0) {
+                    nums[count++] = nums[i];
+                }
+            }
+
+            for (let i = count; i < nums.length; i++){
+                nums[i] = 0;
+            }
+            return nums;
+        };
+    </script>
+    
+</body>
+</html>
