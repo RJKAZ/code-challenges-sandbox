@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Intervals</title>
+</head>
+
+<body>
+    <script>
+        /*
+        This is a classic interview question that is used in a lot in technical interviews, 
+        frequently in the form of a calendar or meeting management application. 
+        As such, we'll also assume the same use case, as it's easier to visualize.
+        
+        Suppose we're given a few arrays, like [1, 4], [2, 5], [7, 10], [12, 16].
+        
+        Each array within it represents a start time and end time of a meeting. 
+        So an array "time range" of [1, 4] would mean that the event starts at 1 and ends at 4.
+
+        Now, what if we wanted to merge any overlapping meetings? 
+        If one meeting runs into the time of another, we'll want to combine them into one. 
+        
+        As such, [1, 4] and [2, 5] would be combined into [1, 5].
+
+        For the above example, we would want to return [1, 5], [7, 10], [12, 16]. 
+        Can you write a method that will do this?
+        */
+
+        const merge = intervals => {
+            if (intervals.length < 2) return intervals;
+
+            intervals.sort((a, b) => a[0] - b[0]);
+
+            const result = [];
+            let previous = intervals[0];
+
+            for (let i = 1; i < intervals.length; i += 1) {
+                if (previous[1] >= intervals[i][0]) {
+                    previous = [previous[0], Math.max(previous[1], intervals[i][1])];
+                } else {
+                    result.push(previous);
+                    previous = intervals[i];
+                }
+            }
+
+            result.push(previous);
+
+            return result;
+        };
+    </script>
+
+</body>
+
+</html>
