@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Sorted Linked Lists</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Write an algorithm to merge two sorted linked lists and return it as a new sorted list. 
+
+        The new list should be constrcuted by joining the nodes of the input lists. 
+
+
+        
+        
+        */
+
+        function ListNode(val) {
+            this.value = val;
+            this.next = null;
+        }
+
+        var mergeTwoLists = function (l1, l2) {
+            if (!l1 || !l2) return l1 || l2;
+            const linkThem = (smaller, greater) => {
+                smaller.next = mergeTwoLists(smaller.next, greater);
+                return smaller;
+            };
+            return l1.val < l2.val ? linkThem(l1, l2) : linkThem(l2, l1);
+        };
+    </script>
+
+</body>
+
+</html>
