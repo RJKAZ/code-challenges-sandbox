@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search 3</title>
+</head>
+
+<body>
+    <script>
+        const binarySearch = (list, item) => {
+            let low = 0;
+            let high = list.length - 1;
+
+            while (low <= high) {
+                const mid = Math.floor((low + high) / 2)
+                const guess = list[mid]
+
+                if (guess === item) {
+                    return mid
+                }
+                if (guess > item) {
+                    high = mid - 1
+                } else {
+                    low = mid + 1
+                }
+            }
+            return null
+        }
+
+        console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9], 90))
+
+        /*
+        So how does this work? We get the list array and then itme value we are looking for. 
+        Then we initialize the low value at 0 initially, and the high value at the last index in the list. 
+        We first look at the middle item and it its what we're looking for we return it, and we're done.
+
+        If not we set the low or high values to only look at the left or right part of the array, and we repeat the process till we find the item
+        we return the index of the item in the array, and we return null if the element is not found. e
+        
+        */
+
+
+    </script>
+
+</body>
+
+</html>
