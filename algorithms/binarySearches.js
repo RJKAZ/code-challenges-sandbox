@@ -42,7 +42,7 @@ function binarySearch(arr, target) {
 
 console.log(binarySearch(testArray, 3));
 
-*/
+
 
 function binarySearch(arr, target) {
   let start = 0;
@@ -59,3 +59,51 @@ function binarySearch(arr, target) {
 }
 
 console.log(binarySearch(testArray, 8));
+
+
+
+function binarySearch(arr, target) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while(start <= end) {
+    let middle = Math.floor((start + end) / 2);
+    if (arr[middle] < target) {
+      start = middle + 1;
+    } else if (arr[middle] > target) {
+      end = middle -1;
+    } else if (arr[middle] === target) {
+      return middle;
+    }
+  }
+  return -1; 
+}
+
+console.log(binarySearch(testArray, 8));
+
+*/
+
+function binarySearch(arr, target) { // function called binary search that takes in two arguments, an array and a target
+  let start = 0; // setting the start at 0
+  let end = arr.length - 1; // setting the end at the end of the array. In JavaScript, determining the end of an array is achieved by using the .length method minus 1
+
+  while(start <= end) { // a while loop, while the start is less than or equal to the end. 
+    // Define the middle using Math.floor which returns the largest integer less than or equal to a given number 
+    let middle = Math.floor((start + end) / 2 ); // so the middle is equal to the start and the end added together and then divided by 2, so of that, the largest integer gets returned via the Math.floor
+    if (arr[middle] < target) { // if the middle of the array is less then the target
+      start = middle + 1; // the start becomes the middle of the array plus 1
+    } else if (arr[middle] > target) { // else if the middle of the array is greater than the target
+      end = middle -1;  // the end is equal to the middle minus one
+    } else if (arr[middle] === target) { // else if the middle of the array is equal to the target, 
+      return middle; // return that middle
+    }
+  }
+  return -1; // otherwise, if the target is nowhere in that array, return -1
+}
+
+console.log(binarySearch(testArray, 2));
+
+
+const testArray2 = [1,2,3,4,5,6,7,8,9]
+console.log(testArray2.length - 1)
+
