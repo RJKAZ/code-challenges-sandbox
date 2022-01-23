@@ -81,7 +81,7 @@ function binarySearch(arr, target) {
 
 console.log(binarySearch(testArray, 8));
 
-*/
+
 
 function binarySearch(arr, target) { // function called binary search that takes in two arguments, an array and a target
   let start = 0; // setting the start at 0
@@ -93,7 +93,7 @@ function binarySearch(arr, target) { // function called binary search that takes
     if (arr[middle] < target) { // if the middle of the array is less then the target
       start = middle + 1; // the start becomes the middle of the array plus 1
     } else if (arr[middle] > target) { // else if the middle of the array is greater than the target
-      end = middle -1;  // the end is equal to the middle minus one
+      end = middle - 1;  // the end is equal to the middle minus one
     } else if (arr[middle] === target) { // else if the middle of the array is equal to the target, 
       return middle; // return that middle
     }
@@ -107,3 +107,58 @@ console.log(binarySearch(testArray, 2));
 const testArray2 = [1,2,3,4,5,6,7,8,9]
 console.log(testArray2.length - 1)
 
+
+
+function binarySearch(arr, target) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while(start <= end) {
+    let middle = Math.floor((start + end) / 2);
+    if (arr[middle] < target) {
+      start = middle + 1;
+    } else if (arr[middle] > target) {
+      end = middle - 1;
+    } else if (arr[middle] === target) {
+      return middle;
+    }
+  }
+  return -1; 
+}
+
+console.log(binarySearch(testArray, 2));
+
+
+binary search function that takes in two arguments, an array and a target
+  define the start at 0
+  define the end as the last index of the array
+
+  while loop that so long as the start is less than or equal to the end
+    define the middle as the highest integer of the product of the start plus the end divded by 2. 
+    if the arrays middle is less then the target
+      set the start to be equal to the middle + 1
+    else if the arrays middle is greater then the target
+      set the end to be equal to the middle - 1
+    else if the arrays middle is equal to the target
+      return the middle
+  otherwise return -1;
+*/
+
+function binarySearch(arr, target) {
+  let start = 0;
+  let end = arr.length -1;
+
+  while(start <= end) {
+    let middle = Math.floor((start + end) / 2);
+    if (arr[middle] < target){
+      start = middle + 1;
+    } else if (arr[middle] > target){
+      end = middle - 1;
+    } else if (arr[middle] === target) {
+      return middle
+    }
+  }
+  return -1;
+}
+
+console.log(binarySearch(testArray, 4));
