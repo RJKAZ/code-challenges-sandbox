@@ -224,6 +224,7 @@ function binarySearch(arr, target) {
 console.log(binarySearch(testArray, 1));
 
 
+<<<<<<< HEAD
 function binarySearch(arr, target) {
   let start = 0; 
   let end = arr.length - 1; 
@@ -242,13 +243,19 @@ function binarySearch(arr, target) {
 }
 console.log(binarySearch(testArray, 1));
 
+=======
+>>>>>>> 1289760a8742c1c7d6a9fc84e870b2b620a85efb
 
 function binarySearch(arr, target) {
   let start = 0;
   let end = arr.length - 1;
 
   while (start <= end) {
+<<<<<<< HEAD
     let middle = Math.floor((start + end) / 2)
+=======
+    let middle = Math.floor((start + end) / 2);
+>>>>>>> 1289760a8742c1c7d6a9fc84e870b2b620a85efb
     if (arr[middle] < target) {
       start = middle + 1;
     } else if (arr[middle] > target) {
@@ -260,6 +267,7 @@ function binarySearch(arr, target) {
   return -1;
 }
 
+<<<<<<< HEAD
 console.log(binarySearch(testArray, 10));
 */
 
@@ -269,6 +277,17 @@ function binarySearch(arr, target) {
 
   while (start <= end) {
     let middle = Math.floor((start + end) / 2)
+=======
+console.log(binarySearch(testArray, 11));
+
+
+function binarySearch(arr, target) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start <= end) {
+    let middle = Math.floor((start + end) / 2);
+>>>>>>> 1289760a8742c1c7d6a9fc84e870b2b620a85efb
     if (arr[middle] < target) {
       start = middle + 1;
     } else if (arr[middle] > target) {
@@ -277,6 +296,52 @@ function binarySearch(arr, target) {
       return middle;
     }
   }
+<<<<<<< HEAD
   return -1; 
 }
 console.log(binarySearch(testArray, 10));
+=======
+  return -1;
+}
+console.log(binarySearch(testArray, 15));
+
+
+function binarySearch(arr, target) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start <= end) {
+    let middle = Math.floor((start + end) / 2);
+    if (arr[middle] < target) {
+      start = middle + 1;
+    } else if (arr[middle] > target) {
+      end = middle - 1;
+    } else if (arr[middle] === target) {
+      return middle;
+    }
+  }
+  return -1;
+}
+
+console.log(binarySearch(testArray, 15));
+*/
+
+function binarySearch(arr, target) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start <= end) {
+    let middle = Math.floor((start + end) / 2);
+    if (arr[middle] < target) {
+      start = middle + 1;
+    } else if (arr[middle] > target) {
+      end = middle - 1;
+    } else if (arr[middle] === target) {
+      return middle;
+    }
+  }
+  return -1;
+}
+
+console.log(binarySearch(testArray, 13));
+>>>>>>> 1289760a8742c1c7d6a9fc84e870b2b620a85efb
