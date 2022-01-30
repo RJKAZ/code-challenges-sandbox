@@ -222,7 +222,7 @@ function binarySearch(arr, target) {
 }
 
 console.log(binarySearch(testArray, 1));
-*/
+
 
 function binarySearch(arr, target) {
   let start = 0;
@@ -242,3 +242,62 @@ function binarySearch(arr, target) {
 }
 
 console.log(binarySearch(testArray, 1));
+
+
+function binarySearch(arr, target) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start <= end) {
+    let middle = Math.floor((start + end) / 2);
+    if (arr[middle] < target) {
+      start = middle + 1;
+    } else if (arr[middle] > target) {
+      end = middle - 1;
+    } else if (arr[middle] === target) {
+      return middle;
+    }
+  }
+  return -1;
+}
+
+console.log(binarySearch(testArray, 1));
+
+
+function binarySearch(arr, target) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start <= end) {
+    middle = Math.floor((start + end) / 2);
+    if (arr[middle] < target) {
+      start = middle + 1;
+    } else if (arr[middle] > target) {
+      end = middle - 1;
+    } else if (arr[middle] === target) {
+      return middle;
+    }
+  }
+  return -1;
+}
+
+console.log(binarySearch(arr, target));
+*/
+
+function binarySearch(list, winningNumber) {
+  let firstPick = 0;
+  let lastPick = list.length - 1;
+
+  while (firstPick <= lastPick) {
+    middlePick = Math.floor((firstPick + lastPick) / 2);
+    if (list[middlePick] < winningNumber) {
+      firstPick = middlePick + 1;
+    } else if (list[middlePick] > winningNumber) {
+      lastPick = middlePick - 1;
+    } else if (list[middlePick] === winningNumber) {
+      return middlePick;
+    }
+  }
+  return 'you lose';
+}
+console.log(binarySearch(testArray, 200));
