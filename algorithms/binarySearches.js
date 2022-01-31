@@ -282,7 +282,7 @@ function binarySearch(arr, target) {
 }
 
 console.log(binarySearch(arr, target));
-*/
+
 
 function binarySearch(list, winningNumber) {
   let firstPick = 0;
@@ -301,3 +301,73 @@ function binarySearch(list, winningNumber) {
   return 'you lose';
 }
 console.log(binarySearch(testArray, 200));
+
+
+function binarySearch(arr, value) {
+  let high = arr.length - 1;
+  let low = 0;
+  let mid = 0;
+
+  while (low <= high) {
+    mid = Math.floor((high + low) / 2);
+    if (arr[mid] === value) {
+      return arr[mid];
+    } else if (value > arr[mid]) {
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+  return 'Not Found';
+}
+
+let array = [80, 2, 85, 4, 69, 5, 67, 9, 45, 12, 14];
+
+let sorted = array.sort(function (a, b) {
+  return a - b;
+});
+
+let foundNum = binarySearch(sorted, 90);
+
+console.log(foundNum);
+
+
+function binarySearch(arr, target) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start <= end) {
+    middle = Math.floor((start + end) / 2);
+    if (arr[middle] < target) {
+      start = middle + 1;
+    } else if (arr[middle] > target) {
+      end = middle - 1;
+    } else if (arr[middle] === target) {
+      return middle;
+    }
+  }
+  return console.log('number not in array');
+}
+
+console.log(binarySearch(testArray, 10));
+
+*/
+
+function binarySearch(arr, target) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start <= end) {
+    middle = Math.floor((start + end) / 2);
+    if (arr[middle] < target) {
+      start = middle + 1;
+    } else if (arr[middle] > target) {
+      end = middle - 1;
+    } else if (arr[middle] === target) {
+      return middle;
+    }
+  }
+  return -1;
+}
+
+console.log(binarySearch(testArray, 5));
