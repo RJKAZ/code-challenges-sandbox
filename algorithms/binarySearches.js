@@ -1778,7 +1778,7 @@ function binarySearch(arr, target) {
   return -1;
 }
 console.log(binarySearch(testArray, 6))
-*/
+
 function binarySearch(arr, target) {
   let start = 0;
   let end = arr.length -1;
@@ -1796,3 +1796,22 @@ function binarySearch(arr, target) {
   return -1;
 }
 console.log(binarySearch(testArray, 6))
+*/
+
+function binarySearch(arr, target) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start <= end) {
+    middle = Math.floor((start + end) / 2);
+    if (arr[middle] < target) {
+      start = middle + 1;
+    } else if (arr[middle] > target) {
+      end = middle - 1;
+    } else if (arr[middle] === target) {
+      return middle;
+    }
+  }
+  return -1;
+}
+console.log(binarySearch(testArray, 6));
